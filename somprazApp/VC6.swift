@@ -35,7 +35,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         boardIV.layer.cornerRadius = 20
         lbLabel.layer.cornerRadius = 20
         
-       
+       // add print mesage
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
