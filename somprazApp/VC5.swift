@@ -150,6 +150,7 @@ class VC5: UIViewController {
                 }
             case .failure(let error):
                 print(error)
+                print("playAgain")
             }
         }
     }
