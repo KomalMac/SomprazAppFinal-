@@ -15,8 +15,8 @@ struct Question {
     var Answer : Int!
     
     var answer: String
-       var isCorrect: Bool
-       var id: String
+    var isCorrect: Bool
+    var id: String
     
     
 }
@@ -72,8 +72,6 @@ class VC5: UIViewController {
         // or
         self.navigationItem.title = nil
         
-        
-        //        var Buttons = [btn1, btn2, btn3, btn4]
         
         // Start the timer when the view loads
         startTimer()
@@ -138,6 +136,7 @@ class VC5: UIViewController {
             print("QUIZ ERROR OCCURRED")
             return
         }
+        let loader = self.loader()
         
         URLSession.shared.makeRequest(url: url, expecting: [QuizModelElement].self) { [weak self] result in
             switch result {
@@ -152,6 +151,8 @@ class VC5: UIViewController {
                 print(error)
                 print("playAgain")
             }
+            // Dismiss the loading indicator when the network request is complete
+                    self?.stopLoader(loader: loader)
         }
     }
     func selectCategory() {
@@ -176,12 +177,12 @@ class VC5: UIViewController {
                 }
             }
             
-//            arrSelectedCategoryQuestion.forEach { quest in
-//                if !displayedQuestionsID.contains(quest.id), displayedQuestionsID.count <= arrSelectedCategoryQuestion.count {
-//                    currentQuestion = quest
-//                    displayQuestion()
-//                }
-//            }
+            //            arrSelectedCategoryQuestion.forEach { quest in
+            //                if !displayedQuestionsID.contains(quest.id), displayedQuestionsID.count <= arrSelectedCategoryQuestion.count {
+            //                    currentQuestion = quest
+            //                    displayQuestion()
+            //                }
+            //            }
         } else {
             let alert = UIAlertController(title: "Oops", message: "No questions available for \(selectedCategory)", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
@@ -206,7 +207,7 @@ class VC5: UIViewController {
     
     func displayQuestion() {
         
-//        selectCategory()
+        //        selectCategory()
         if let currentQuestion = currentQuestion {
             displayedQuestionsID.append(currentQuestion.id)
             for i in 0..<arrSelectedCategoryQuestion.count {
@@ -224,18 +225,18 @@ class VC5: UIViewController {
             }
         }
         
-//        if let firstQuestion = arrAllQuestions.first {
-//            self.quesLbl.text = firstQuestion.question
-//            
-//            if firstQuestion.answerOptions.count >= 4 {
-//                self.btn1.setTitle(firstQuestion.answerOptions[0].answer, for: .normal)
-//                self.btn2.setTitle(firstQuestion.answerOptions[1].answer, for: .normal)
-//                self.btn3.setTitle(firstQuestion.answerOptions[2].answer, for: .normal)
-//                self.btn4.setTitle(firstQuestion.answerOptions[3].answer, for: .normal)
-//            }
-//            
-//            
-//        }
+        //        if let firstQuestion = arrAllQuestions.first {
+        //            self.quesLbl.text = firstQuestion.question
+        //
+        //            if firstQuestion.answerOptions.count >= 4 {
+        //                self.btn1.setTitle(firstQuestion.answerOptions[0].answer, for: .normal)
+        //                self.btn2.setTitle(firstQuestion.answerOptions[1].answer, for: .normal)
+        //                self.btn3.setTitle(firstQuestion.answerOptions[2].answer, for: .normal)
+        //                self.btn4.setTitle(firstQuestion.answerOptions[3].answer, for: .normal)
+        //            }
+        //
+        //
+        //        }
     }
     
     
@@ -270,25 +271,35 @@ class VC5: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    // Selector method to update the timer label
+    
     @objc func updateTimer() {
         if remainingTime > 0 {
             remainingTime -= 1
             timerLbl.text = String(remainingTime)
         } else {
-            // Time's up, you can perform any action here
-            // For example, stop the timer or navigate to a different screen
+            // Time's up, create and present the custom alert view controller
             timer?.invalidate() // Stop the timer
-            // Add your action here
+            let customTimeoutAlert = CustomTimeoutAlertViewController()
+            customTimeoutAlert.score = calculateScore() // Set the score
+            customTimeoutAlert.modalPresentationStyle = .overCurrentContext
+            customTimeoutAlert.modalTransitionStyle = .crossDissolve
+            present(customTimeoutAlert, animated: true, completion: nil)
         }
     }
+
+    func calculateScore() -> Int {
+        // Implement your logic to calculate the score based on user's answers
+        // Return the score value
+        return 42 // Replace with your score calculation
+    }
+
     
     func displayNextQuestion() {
-//        if let currentQuestion = arrAllQuestions.first {
-//            quesLbl.text = currentQuestion.question
-//        } else {
-//            // Handle the case when there are no more questions
-//        }
+        //        if let currentQuestion = arrAllQuestions.first {
+        //            quesLbl.text = currentQuestion.question
+        //        } else {
+        //            // Handle the case when there are no more questions
+        //        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.resetAnswers()
             self.updateCurrentQuestion()
@@ -337,23 +348,23 @@ class VC5: UIViewController {
                 if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
                     // Modify the border color of the correct answer button
                     switch correctIndex {
-                        case 0: btn1.layer.borderColor = UIColor.green.cgColor
-                        case 1: btn2.layer.borderColor = UIColor.green.cgColor
-                        case 2: btn3.layer.borderColor = UIColor.green.cgColor
-                        case 3: btn4.layer.borderColor = UIColor.green.cgColor
-                        default:
-                            break
+                    case 0: btn1.layer.borderColor = UIColor.green.cgColor
+                    case 1: btn2.layer.borderColor = UIColor.green.cgColor
+                    case 2: btn3.layer.borderColor = UIColor.green.cgColor
+                    case 3: btn4.layer.borderColor = UIColor.green.cgColor
+                    default:
+                        break
                     }
                 }
             }
             // Load the next question
-//            arrAllQuestions.removeFirst()
+            //            arrAllQuestions.removeFirst()
             displayNextQuestion()
         }
     }
     
     @IBAction func onBtnTapped(_ sender: UIButton) {
-
+        
         checkAnswer(button: sender, answerIndex: sender.tag)
         
     }
@@ -363,215 +374,247 @@ class VC5: UIViewController {
     @IBAction func btn1Tapped(_ sender: UIButton) {
         //
         checkAnswer(button: sender, answerIndex: 0)
-//        if let currentQuestion = currentQuestion {
-//               checkAnswer(button: sender, answerIndex: 0)
-//               if currentQuestion.answerOptions.first?.isCorrect == true {
-//                   sender.layer.borderColor = UIColor.green.cgColor
-//               } else {
-//                   sender.layer.borderColor = UIColor.red.cgColor
-//                   if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-//                       // Highlight the correct answer with a green border
-//                       highlightCorrectAnswer(index: correctIndex)
-//                   }
-//               }
-               // Load the next question
-               displayNextQuestion()
-            
-            //        if let currentQuestion = questions.first {
-            //
-            //            checkAnswer(button: sender, answerIndex: 0)
-            //            if currentQuestion.answerOptions.first?.isCorrect == true {
-            //                    // Correct answer selected
-            //                    sender.layer.borderColor = UIColor.green.cgColor
-            //                } else {
-            //                    // Wrong answer selected
-            //                    sender.layer.borderColor = UIColor.red.cgColor
-            //
-            //                }
-            //                // Load the next question
-            //                questions.removeFirst()
-            //                displayNextQuestion()
-            //            }
-            //
-            //
-            //
-            //        //        // Set the border color of the tapped button to yellow
-            //        //        sender.layer.borderColor = UIColor.yellow.cgColor
-            //        //
-            //        //        // Set the border color of other buttons to white
-            //        //        if sender.tag != 1 {
-            //        //            btn1.layer.borderColor = UIColor.white.cgColor
-            //        //        }
-            //        //        if sender.tag != 2 {
-            //        //            btn2.layer.borderColor = UIColor.white.cgColor
-            //        //        }
-            //        //        if sender.tag != 3 {
-            //        //            btn3.layer.borderColor = UIColor.white.cgColor
-            //        //        }
-            //        //        if sender.tag != 4 {
-            //        //            btn4.layer.borderColor = UIColor.white.cgColor
-            //        //        }
-            //        //
-            //        //        if AnswerNumber == 0 {
-            //        //                // Correct answer selected
-            //        //                sender.layer.borderColor = UIColor.green.cgColor
-            //        //            } else {
-            //        //                // Wrong answer selected
-            //        //                sender.layer.borderColor = UIColor.red.cgColor
-            //        //                setCorrectAnswerBorderColor()
-            //        //            }
-            //        //            QNumber += 1
-            //        //            PickQuestion()
-            //    }
-            
-            //    func setCorrectAnswerBorderColor() {
-            //        let correctButton: UIButton?
-            //        switch AnswerNumber {
-            //        case 0: correctButton = btn1
-            //        case 1: correctButton = btn2
-            //        case 2: correctButton = btn3
-            //        case 3: correctButton = btn4
-            //        default: correctButton = nil
-            //        }
-            //        correctButton?.layer.borderColor = UIColor.green.cgColor
-            //   }
-            
-//        }
+        //        if let currentQuestion = currentQuestion {
+        //               checkAnswer(button: sender, answerIndex: 0)
+        //               if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                   sender.layer.borderColor = UIColor.green.cgColor
+        //               } else {
+        //                   sender.layer.borderColor = UIColor.red.cgColor
+        //                   if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
+        //                       // Highlight the correct answer with a green border
+        //                       highlightCorrectAnswer(index: correctIndex)
+        //                   }
+        //               }
+        // Load the next question
+        displayNextQuestion()
+        
+        //        if let currentQuestion = questions.first {
+        //
+        //            checkAnswer(button: sender, answerIndex: 0)
+        //            if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                    // Correct answer selected
+        //                    sender.layer.borderColor = UIColor.green.cgColor
+        //                } else {
+        //                    // Wrong answer selected
+        //                    sender.layer.borderColor = UIColor.red.cgColor
+        //
+        //                }
+        //                // Load the next question
+        //                questions.removeFirst()
+        //                displayNextQuestion()
+        //            }
+        //
+        //
+        //
+        //        //        // Set the border color of the tapped button to yellow
+        //        //        sender.layer.borderColor = UIColor.yellow.cgColor
+        //        //
+        //        //        // Set the border color of other buttons to white
+        //        //        if sender.tag != 1 {
+        //        //            btn1.layer.borderColor = UIColor.white.cgColor
+        //        //        }
+        //        //        if sender.tag != 2 {
+        //        //            btn2.layer.borderColor = UIColor.white.cgColor
+        //        //        }
+        //        //        if sender.tag != 3 {
+        //        //            btn3.layer.borderColor = UIColor.white.cgColor
+        //        //        }
+        //        //        if sender.tag != 4 {
+        //        //            btn4.layer.borderColor = UIColor.white.cgColor
+        //        //        }
+        //        //
+        //        //        if AnswerNumber == 0 {
+        //        //                // Correct answer selected
+        //        //                sender.layer.borderColor = UIColor.green.cgColor
+        //        //            } else {
+        //        //                // Wrong answer selected
+        //        //                sender.layer.borderColor = UIColor.red.cgColor
+        //        //                setCorrectAnswerBorderColor()
+        //        //            }
+        //        //            QNumber += 1
+        //        //            PickQuestion()
+        //    }
+        
+        //    func setCorrectAnswerBorderColor() {
+        //        let correctButton: UIButton?
+        //        switch AnswerNumber {
+        //        case 0: correctButton = btn1
+        //        case 1: correctButton = btn2
+        //        case 2: correctButton = btn3
+        //        case 3: correctButton = btn4
+        //        default: correctButton = nil
+        //        }
+        //        correctButton?.layer.borderColor = UIColor.green.cgColor
+        //   }
+        
+        //        }
         
     }
+    
+    //
+    @IBAction func btn2Tapped(_ sender: UIButton) {
+        //
+        checkAnswer(button: sender, answerIndex: 1)
+        //            if let currentQuestion = currentQuestion {
+        //                   checkAnswer(button: sender, answerIndex: 0)
+        //                   if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                       sender.layer.borderColor = UIColor.green.cgColor
+        //                   } else {
+        //                       sender.layer.borderColor = UIColor.red.cgColor
+        //                       if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
+        //                           // Highlight the correct answer with a green border
+        //                           highlightCorrectAnswer(index: correctIndex)
+        //                       }
+        //                   }
+        //                   // Load the next question
+        //                   displayNextQuestion()
+        //        if let currentQuestion = questions.first {
+        //            checkAnswer(button: sender, answerIndex: 1)
+        //                if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                    sender.layer.borderColor = UIColor.green.cgColor
+        //                } else {
+        //                    sender.layer.borderColor = UIColor.red.cgColor
+        //
+        //                }
+        //                // Load the next question
+        //                questions.removeFirst()
+        //                displayNextQuestion()
+        //            }
+        //
+        //        //        if AnswerNumber == 1 {
+        //        //            sender.layer.borderColor = UIColor.green.cgColor
+        //        //        } else {
+        //        //            sender.layer.borderColor = UIColor.red.cgColor
+        //        //            setCorrectAnswerBorderColor()
+        //        //        }
+        //        //        QNumber += 1
+        //        //        PickQuestion()
+        //    }
         
         //
-        @IBAction func btn2Tapped(_ sender: UIButton) {
-            //
-            checkAnswer(button: sender, answerIndex: 1)
-//            if let currentQuestion = currentQuestion {
-//                   checkAnswer(button: sender, answerIndex: 0)
-//                   if currentQuestion.answerOptions.first?.isCorrect == true {
-//                       sender.layer.borderColor = UIColor.green.cgColor
-//                   } else {
-//                       sender.layer.borderColor = UIColor.red.cgColor
-//                       if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-//                           // Highlight the correct answer with a green border
-//                           highlightCorrectAnswer(index: correctIndex)
-//                       }
-//                   }
-//                   // Load the next question
-//                   displayNextQuestion()
-                //        if let currentQuestion = questions.first {
-                //            checkAnswer(button: sender, answerIndex: 1)
-                //                if currentQuestion.answerOptions.first?.isCorrect == true {
-                //                    sender.layer.borderColor = UIColor.green.cgColor
-                //                } else {
-                //                    sender.layer.borderColor = UIColor.red.cgColor
-                //
-                //                }
-                //                // Load the next question
-                //                questions.removeFirst()
-                //                displayNextQuestion()
-                //            }
-                //
-                //        //        if AnswerNumber == 1 {
-                //        //            sender.layer.borderColor = UIColor.green.cgColor
-                //        //        } else {
-                //        //            sender.layer.borderColor = UIColor.red.cgColor
-                //        //            setCorrectAnswerBorderColor()
-                //        //        }
-                //        //        QNumber += 1
-                //        //        PickQuestion()
-                //    }
-                
-                //
-//            }
-        }
-            
+        //            }
+    }
+    
     @IBAction func btn3Tapped(_ sender: UIButton) {
         //
         checkAnswer(button: sender, answerIndex: 2)
-//        if let currentQuestion = currentQuestion {
-//            checkAnswer(button: sender, answerIndex: 0)
-//            if currentQuestion.answerOptions.first?.isCorrect == true {
-//                sender.layer.borderColor = UIColor.green.cgColor
-//            } else {
-//                sender.layer.borderColor = UIColor.red.cgColor
-//                if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-//                    // Highlight the correct answer with a green border
-//                    highlightCorrectAnswer(index: correctIndex)
-//                }
-//            }
-//            // Load the next question
-//            displayNextQuestion()
-            
-            
-            //        if let currentQuestion = questions.first {
-            //            checkAnswer(button: sender, answerIndex: 2)
-            //                if currentQuestion.answerOptions.first?.isCorrect == true {
-            //                    sender.layer.borderColor = UIColor.green.cgColor
-            //                } else {
-            //                    sender.layer.borderColor = UIColor.red.cgColor
-            //
-            //                }
-            //                // Load the next question
-            //                questions.removeFirst()
-            //                displayNextQuestion()
-            //            }
-            //
-            //
-            //        //        if AnswerNumber == 2 {
-            //        //            sender.layer.borderColor = UIColor.green.cgColor
-            //        //        } else {
-            //        //            sender.layer.borderColor = UIColor.red.cgColor
-            //        //            setCorrectAnswerBorderColor()
-            //        //        }
-            //        //        QNumber += 1
-            //        //        PickQuestion()
-//        }
+        //        if let currentQuestion = currentQuestion {
+        //            checkAnswer(button: sender, answerIndex: 0)
+        //            if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                sender.layer.borderColor = UIColor.green.cgColor
+        //            } else {
+        //                sender.layer.borderColor = UIColor.red.cgColor
+        //                if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
+        //                    // Highlight the correct answer with a green border
+        //                    highlightCorrectAnswer(index: correctIndex)
+        //                }
+        //            }
+        //            // Load the next question
+        //            displayNextQuestion()
+        
+        
+        //        if let currentQuestion = questions.first {
+        //            checkAnswer(button: sender, answerIndex: 2)
+        //                if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                    sender.layer.borderColor = UIColor.green.cgColor
+        //                } else {
+        //                    sender.layer.borderColor = UIColor.red.cgColor
+        //
+        //                }
+        //                // Load the next question
+        //                questions.removeFirst()
+        //                displayNextQuestion()
+        //            }
+        //
+        //
+        //        //        if AnswerNumber == 2 {
+        //        //            sender.layer.borderColor = UIColor.green.cgColor
+        //        //        } else {
+        //        //            sender.layer.borderColor = UIColor.red.cgColor
+        //        //            setCorrectAnswerBorderColor()
+        //        //        }
+        //        //        QNumber += 1
+        //        //        PickQuestion()
+        //        }
     }
-            @IBAction func btn4Tapped(_ sender: UIButton) {
-                
-                checkAnswer(button: sender, answerIndex: 3)
-//                if let currentQuestion = currentQuestion {
-//                    checkAnswer(button: sender, answerIndex: 0)
-//                    if currentQuestion.answerOptions.first?.isCorrect == true {
-//                        sender.layer.borderColor = UIColor.green.cgColor
-//                    } else {
-//                        sender.layer.borderColor = UIColor.red.cgColor
-//                        if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-//                            // Highlight the correct answer with a green border
-//                            highlightCorrectAnswer(index: correctIndex)
-//                        }
-//                    }
-//                    // Load the next question
-//                    
-//                    displayNextQuestion()
-                    
-                    //        if let currentQuestion = questions.first {
-                    //            checkAnswer(button: sender, answerIndex: 3)
-                    //                if currentQuestion.answerOptions.first?.isCorrect == true {
-                    //                    sender.layer.borderColor = UIColor.green.cgColor
-                    //                } else {
-                    //                    sender.layer.borderColor = UIColor.red.cgColor
-                    //
-                    //
-                    //                }
-                    //                // Load the next question
-                    //                questions.removeFirst()
-                    //                displayNextQuestion()
-                    //            }
-                    //
-                    //
-                    //        //        if AnswerNumber == 3 {
-                    //        //            sender.layer.borderColor = UIColor.green.cgColor
-                    //        //        } else {
-                    //        //            sender.layer.borderColor = UIColor.red.cgColor
-                    //        //            setCorrectAnswerBorderColor()
-                    //        //        }
-                    //        //        QNumber += 1
-                    //        //        PickQuestion()
-                    //        //    }
-                    //    }
-                    
-//                }
-            }
-            
+    @IBAction func btn4Tapped(_ sender: UIButton) {
+        
+        checkAnswer(button: sender, answerIndex: 3)
+        //                if let currentQuestion = currentQuestion {
+        //                    checkAnswer(button: sender, answerIndex: 0)
+        //                    if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                        sender.layer.borderColor = UIColor.green.cgColor
+        //                    } else {
+        //                        sender.layer.borderColor = UIColor.red.cgColor
+        //                        if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
+        //                            // Highlight the correct answer with a green border
+        //                            highlightCorrectAnswer(index: correctIndex)
+        //                        }
+        //                    }
+        //                    // Load the next question
+        //
+        //                    displayNextQuestion()
+        
+        //        if let currentQuestion = questions.first {
+        //            checkAnswer(button: sender, answerIndex: 3)
+        //                if currentQuestion.answerOptions.first?.isCorrect == true {
+        //                    sender.layer.borderColor = UIColor.green.cgColor
+        //                } else {
+        //                    sender.layer.borderColor = UIColor.red.cgColor
+        //
+        //
+        //                }
+        //                // Load the next question
+        //                questions.removeFirst()
+        //                displayNextQuestion()
+        //            }
+        //
+        //
+        //        //        if AnswerNumber == 3 {
+        //        //            sender.layer.borderColor = UIColor.green.cgColor
+        //        //        } else {
+        //        //            sender.layer.borderColor = UIColor.red.cgColor
+        //        //            setCorrectAnswerBorderColor()
+        //        //        }
+        //        //        QNumber += 1
+        //        //        PickQuestion()
+        //        //    }
+        //    }
+        
+        //                }
+    }
+    
+}
+extension VC5 {
+    
+    func loader() -> UIAlertController {
+        
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 60, height: 60))
+        loadingIndicator.hidesWhenStopped = true
+        if #available(iOS 13.0, *) {
+            loadingIndicator.style = UIActivityIndicatorView.Style.large
+        } else {
+            // Fallback on earlier versions
+        }
+        loadingIndicator.startAnimating()
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        return alert
+        
+    }
+    
+    func stopLoader(loader : UIAlertController) {
+        
+        DispatchQueue.main.async {
+            loader.dismiss(animated: true,completion: nil)
+        }
+        
+        
+        
+    }
+    
+    
+    
 }
 

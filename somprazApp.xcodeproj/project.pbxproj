@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		770490802AD5D8F20065034E /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7704907F2AD5D8F20065034E /* iOSDropDown.framework */; };
+		7727A2E52AE66A74004C8153 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7727A2E42AE66A74004C8153 /* AlertViewController.swift */; };
 		779F43192AD52A18000310EB /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F43182AD52A18000310EB /* VC2.swift */; };
 		779F431B2AD52D80000310EB /* VC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F431A2AD52D80000310EB /* VC3.swift */; };
 		779F431D2AD53645000310EB /* VC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F431C2AD53645000310EB /* VC4.swift */; };
@@ -61,6 +62,7 @@
 		5E40B6F7F721F9C35B1DE250 /* Pods-somprazAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-somprazAppTests.release.xcconfig"; path = "Target Support Files/Pods-somprazAppTests/Pods-somprazAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		673942000397D84715922F7E /* Pods-somprazApp-somprazAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-somprazApp-somprazAppUITests.release.xcconfig"; path = "Target Support Files/Pods-somprazApp-somprazAppUITests/Pods-somprazApp-somprazAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7704907F2AD5D8F20065034E /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7727A2E42AE66A74004C8153 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		779F43182AD52A18000310EB /* VC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
 		779F431A2AD52D80000310EB /* VC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC3.swift; sourceTree = "<group>"; };
 		779F431C2AD53645000310EB /* VC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC4.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				779F43182AD52A18000310EB /* VC2.swift */,
 				77B5EA752AD403BD005D215F /* VC1.swift */,
 				77B5EA472AD3D218005D215F /* ViewController.swift */,
+				7727A2E42AE66A74004C8153 /* AlertViewController.swift */,
 				77A577122ADFDE9800F04135 /* SelectDoctorModel.swift */,
 				77A5770C2ADEA5CB00F04135 /* DoctorModel.swift */,
 				77BB49622ADC664800CCD73A /* QuizModel.swift */,
@@ -457,6 +460,7 @@
 				779F43192AD52A18000310EB /* VC2.swift in Sources */,
 				779F431B2AD52D80000310EB /* VC3.swift in Sources */,
 				77A577132ADFDE9800F04135 /* SelectDoctorModel.swift in Sources */,
+				7727A2E52AE66A74004C8153 /* AlertViewController.swift in Sources */,
 				77A5770D2ADEA5CB00F04135 /* DoctorModel.swift in Sources */,
 				77BB49652ADC668B00CCD73A /* ServiceLayer.swift in Sources */,
 				77B5EA442AD3D218005D215F /* AppDelegate.swift in Sources */,
