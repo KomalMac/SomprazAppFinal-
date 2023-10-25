@@ -101,3 +101,18 @@ struct Entertainment: Codable {
 }
 
 typealias DoctorModel = [DoctorModelElement]
+
+
+
+//RESPONSE
+//
+//
+//[{"category":"Entertainment","isPlayed":false},
+//{"category" :"Astronomy","isPlayed":true,"TotalPoints":10},
+//{"category" :"History","isPlayed":true,"TotalPoints":10},
+//{"category" :"Science","isPlayed":true,"TotalPoints":10},
+//{"category" :"Literature","isPlayed":true,"TotalPoints":10},
+//{"category" :"Geography","isPlayed":true,"TotalPoints":20},
+//{"category" :"Wildlife","isPlayed":true,"TotalPoints":10},
+//{"category" :"Technology","isPlayed":true,"TotalPoints":20},
+//{"category" :"Mathematics","isPlayed":true,"TotalPoints":30}]
