@@ -23,7 +23,7 @@ struct QuizModelElement: Codable {
 //    }
     
     let id, question: String
-    let category: Category
+    let category: String
     let answerOptions: [AnswerOption]
     let v: Int?
 

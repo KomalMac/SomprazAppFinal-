@@ -14,12 +14,7 @@ class VC1: UIViewController {
     @IBOutlet weak var somprazLbl: UILabel!
     
     var doctorList = [String]()
-    
-    //    let dropDown = DropDown()
-    
-//        let dropDownValues = ["DR A", "DR B", "DR C", "DR D", "DR E"]
-//     Define an empty array to store the fetched values
-   
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,17 +130,7 @@ class VC1: UIViewController {
                     print("Error creating JSON data: \(error)")
                 }
         
-        
-        
-        
     }
-    
-    
-    //        // Handle the "Add" button action
-    //        let VC = storyboard?.instantiateViewController(withIdentifier: "VC4") as! VC4
-    //        self.navigationController?.pushViewController(VC, animated: true)
-    
-//
     @IBAction func docNameDrpDownTapped(_ sender: DropDown) {
 //        if let apiUrl = URL(string: "https://quizapi-omsn.onrender.com/api/get/docter/name") {
 //            let session = URLSession.shared

@@ -24,46 +24,16 @@ class ViewController: UIViewController {
         employeeTF.delegate = self
         passswordTF.delegate = self
         
-        // Set the view controller as the delegate for the text fields
-        //           employeeTF.delegate = self
-        //           passswordTF.delegate = self
-        
-        
-        
-        //        // Add left images to text fields
-        //        let employeeImage = UIImage(named: "image 2")
-        //        addLeftImage(to: employeeTF, withImage: employeeImage)
-        //        
-        //        let passwordImage = UIImage(named: "image3copy")
-        //        addLeftImage(to: passswordTF, withImage: passwordImage)
+       
     }
-    
-    //    func addLeftImage(to textField: UITextField, withImage image: UIImage?) {
-    //        guard let image = image else {
-    //            return
-    //        }
-    //
-    //        let imageSize = CGSize(width: 20, height: 20) // Adjust the width and height as needed
-    //        let leftImageView = UIImageView(frame: CGRect(origin: .zero, size: imageSize))
-    //        leftImageView.contentMode = .scaleAspectFit
-    //
-    //        leftImageView.image = image
-    //        leftImageView.contentMode = .center
-    //
-    //        if textField == employeeTF {
-    //            textField.leftView = leftImageView
-    //            textField.leftViewMode = .always
-    //        }
-    //    }
-    
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         // Check if the text fields are empty
         if let employeeText = employeeTF.text, let passwordText = passswordTF.text, !employeeText.isEmpty, !passwordText.isEmpty {
             // Check if the text fields contain the expected values
-//            if employeeText == "MR@gmail.com" && passwordText == "pass" {
-                if employeeText == "a" && passwordText == "a" {
-
+            //            if employeeText == "MR@gmail.com" && passwordText == "pass" {
+            if employeeText == "a" && passwordText == "a" {
+                
                 // Text fields match the expected values, proceed to the next screen
                 let VC = storyboard?.instantiateViewController(withIdentifier: "VC1") as! VC1
                 self.navigationController?.pushViewController(VC, animated: true)
@@ -82,7 +52,7 @@ class ViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-
+    
     
     
 }

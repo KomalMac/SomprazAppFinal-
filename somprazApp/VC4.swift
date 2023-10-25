@@ -59,6 +59,16 @@ class VC4: UIViewController {
         //        
         // Add similar tap gestures for other image views
     }
+    
+    func getPlayedCategory() {
+      
+//        call api
+//        after that call setupui and add blur logic to setupui
+    }
+    func setUpUI() {
+        
+    }
+    
     @IBAction func onBtnTapped(_ sender: UIButton) {
         
         var intTag = ""

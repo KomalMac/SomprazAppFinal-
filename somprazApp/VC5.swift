@@ -60,7 +60,7 @@ class VC5: UIViewController {
     
     weak var timer: Timer?
     // Add a property to store the remaining time
-    var remainingTime = 60 // Adjust the initial time as needed
+    var remainingTime = 10 // Adjust the initial time as needed
     
     
     override func viewDidLoad() {
@@ -93,6 +93,12 @@ class VC5: UIViewController {
         btn4.layer.cornerRadius = 16
         
         
+        setUpUI()
+        
+        
+    }
+    
+    func setUpUI() {
         
         if Id == "EntertainmentYellow" {
             topicIV.image = UIImage(named: "EntertainmentWhite" )
@@ -114,21 +120,7 @@ class VC5: UIViewController {
             topicIV.image = UIImage(named: "Mathematics White" )
         }
         
-        
-        
-        //        Questions = [
-        //            Question(Question: "Which is our national Animal?", Answers: ["Lion", "Tiger", "Elephant", "Bear"], Answer: 1),
-        //            // Add more questions here
-        //            Question(Question: "Which is our national flower?", Answers: ["Rose", "Lily", "Jasmine", "Lotus"], Answer: 3),
-        //            Question(Question: "Which is our national Fruit?", Answers: ["Mango", "Apple", "Chikoo", "Banana"], Answer: 0),
-        //            Question(Question: "Which is our national Sport?", Answers: ["Cricket", "VollyBall", "Hockey", "Running"], Answer: 3)
-        //        ]
-        
-        //        PickQuestion()
-        
-        
     }
-    
     
     
     func quiz() {
@@ -136,11 +128,13 @@ class VC5: UIViewController {
             print("QUIZ ERROR OCCURRED")
             return
         }
+        
         let loader = self.loader()
         
         URLSession.shared.makeRequest(url: url, expecting: [QuizModelElement].self) { [weak self] result in
             switch result {
             case .success(let questions):
+                print(result)
                 DispatchQueue.main.async {
                     self?.displayedQuestionsID = [String]()
                     self?.arrAllQuestions = [QuizModelElement]()
@@ -151,16 +145,14 @@ class VC5: UIViewController {
                 print(error)
                 print("playAgain")
             }
-            // Dismiss the loading indicator when the network request is complete
-                    self?.stopLoader(loader: loader)
+//             Dismiss the loading indicator when the network request is complete
+            self?.stopLoader(loader: loader)
         }
     }
     func selectCategory() {
         
         
         //                    self?.questions.sort(by: <#T##(QuizModelElement, QuizModelElement) throws -> Bool#>)
-        
-        
         
     }
     
@@ -193,10 +185,11 @@ class VC5: UIViewController {
         }
     }
     
+    
     func updateSelectedCategoryQuestionList() {
         // Filter questions based on the selected category
         arrSelectedCategoryQuestion = [QuizModelElement]()
-        arrSelectedCategoryQuestion = arrAllQuestions.filter { $0.category.rawValue == self.selectedCategory }
+        arrSelectedCategoryQuestion = arrAllQuestions.filter { $0.category == self.selectedCategory }
         
         if arrSelectedCategoryQuestion.isEmpty {
             print("No questions found for category: \(self.selectedCategory)")
@@ -205,8 +198,8 @@ class VC5: UIViewController {
         }
     }
     
+    
     func displayQuestion() {
-        
         //        selectCategory()
         if let currentQuestion = currentQuestion {
             displayedQuestionsID.append(currentQuestion.id)
@@ -224,46 +217,7 @@ class VC5: UIViewController {
                 self.btn4.setTitle(currentQuestion.answerOptions[3].answer, for: .normal)
             }
         }
-        
-        //        if let firstQuestion = arrAllQuestions.first {
-        //            self.quesLbl.text = firstQuestion.question
-        //
-        //            if firstQuestion.answerOptions.count >= 4 {
-        //                self.btn1.setTitle(firstQuestion.answerOptions[0].answer, for: .normal)
-        //                self.btn2.setTitle(firstQuestion.answerOptions[1].answer, for: .normal)
-        //                self.btn3.setTitle(firstQuestion.answerOptions[2].answer, for: .normal)
-        //                self.btn4.setTitle(firstQuestion.answerOptions[3].answer, for: .normal)
-        //            }
-        //
-        //
-        //        }
     }
-    
-    
-    
-    //    func PickQuestion() {
-    //        if Questions.count > 0 {
-    //            // If QNumber reaches the end of the array, reset it to 0
-    //            if QNumber >= Questions.count {
-    //                QNumber = 0
-    //            }
-    //            quesLbl.text = Questions[QNumber].Question
-    //
-    //            AnswerNumber = Questions[QNumber].Answer
-    //
-    //            if let answers = Questions[QNumber].Answers {
-    //                btn1.setTitle(answers[0], for: .normal)
-    //                btn2.setTitle(answers[1], for: .normal)
-    //                btn3.setTitle(answers[2], for: .normal)
-    //                btn4.setTitle(answers[3], for: .normal)
-    //            }
-    //        } else {
-    //            // Handle the case where there are no questions or questions are exhausted
-    //            // For example, you can show a message or take appropriate action
-    //        }
-    //    }
-    
-    
     
     
     // Function to start the timer
@@ -278,21 +232,58 @@ class VC5: UIViewController {
             timerLbl.text = String(remainingTime)
         } else {
             // Time's up, create and present the custom alert view controller
-            timer?.invalidate() // Stop the timer
-            let customTimeoutAlert = CustomTimeoutAlertViewController()
-            customTimeoutAlert.score = calculateScore() // Set the score
-            customTimeoutAlert.modalPresentationStyle = .overCurrentContext
-            customTimeoutAlert.modalTransitionStyle = .crossDissolve
-            present(customTimeoutAlert, animated: true, completion: nil)
+            self.timer?.invalidate() // Stop the timer
+            
+            // Create an instance of CustomTimeoutAlertViewController
+            let customTimeoutAlert = storyboard?.instantiateViewController(withIdentifier: "CustomTimeoutAlertViewController") as! CustomTimeoutAlertViewController
+            customTimeoutAlert.score = self.calculateScore() // Set the score
+            
+            // Present the CustomTimeoutAlertViewController modally
+            customTimeoutAlert.modalPresentationStyle = .overCurrentContext // Set the presentation style as needed
+            customTimeoutAlert.modalTransitionStyle = .crossDissolve // Set the transition style as needed
+            self.present(customTimeoutAlert, animated: true, completion: nil)
+            
+            // After 5 seconds, dismiss the alert controller and push VC6
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                        customTimeoutAlert.dismiss(animated: true) {
+                            // Create an instance of VC6
+                            let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
+
+                            // Push VC6 onto the navigation stack
+                            self.navigationController?.pushViewController(vc6, animated: true)
+                        }
+                    }
+            
         }
     }
-
+    
+    
+    //    
+    //    @objc func updateTimer() {
+    //        if remainingTime > 0 {
+    //            remainingTime -= 1
+    //            timerLbl.text = String(remainingTime)
+    //        } else {
+    //            DispatchQueue.main.async {
+    //                
+    //                
+    //                // Time's up, create and present the custom alert view controller
+    //                self.timer?.invalidate() // Stop the timer
+    //                let customTimeoutAlert = CustomTimeoutAlertViewController()
+    ////                customTimeoutAlert.score = self.calculateScore() // Set the score
+    //                customTimeoutAlert.modalPresentationStyle = .overCurrentContext
+    //                customTimeoutAlert.modalTransitionStyle = .crossDissolve
+    //                self.present(customTimeoutAlert, animated: true, completion: nil)
+    //            }
+    //        }
+    //    }
+    
     func calculateScore() -> Int {
         // Implement your logic to calculate the score based on user's answers
         // Return the score value
         return 42 // Replace with your score calculation
     }
-
+    
     
     func displayNextQuestion() {
         //        if let currentQuestion = arrAllQuestions.first {
@@ -369,222 +360,8 @@ class VC5: UIViewController {
         
     }
     
-    
-    //
-    @IBAction func btn1Tapped(_ sender: UIButton) {
-        //
-        checkAnswer(button: sender, answerIndex: 0)
-        //        if let currentQuestion = currentQuestion {
-        //               checkAnswer(button: sender, answerIndex: 0)
-        //               if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                   sender.layer.borderColor = UIColor.green.cgColor
-        //               } else {
-        //                   sender.layer.borderColor = UIColor.red.cgColor
-        //                   if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-        //                       // Highlight the correct answer with a green border
-        //                       highlightCorrectAnswer(index: correctIndex)
-        //                   }
-        //               }
-        // Load the next question
-        displayNextQuestion()
-        
-        //        if let currentQuestion = questions.first {
-        //
-        //            checkAnswer(button: sender, answerIndex: 0)
-        //            if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                    // Correct answer selected
-        //                    sender.layer.borderColor = UIColor.green.cgColor
-        //                } else {
-        //                    // Wrong answer selected
-        //                    sender.layer.borderColor = UIColor.red.cgColor
-        //
-        //                }
-        //                // Load the next question
-        //                questions.removeFirst()
-        //                displayNextQuestion()
-        //            }
-        //
-        //
-        //
-        //        //        // Set the border color of the tapped button to yellow
-        //        //        sender.layer.borderColor = UIColor.yellow.cgColor
-        //        //
-        //        //        // Set the border color of other buttons to white
-        //        //        if sender.tag != 1 {
-        //        //            btn1.layer.borderColor = UIColor.white.cgColor
-        //        //        }
-        //        //        if sender.tag != 2 {
-        //        //            btn2.layer.borderColor = UIColor.white.cgColor
-        //        //        }
-        //        //        if sender.tag != 3 {
-        //        //            btn3.layer.borderColor = UIColor.white.cgColor
-        //        //        }
-        //        //        if sender.tag != 4 {
-        //        //            btn4.layer.borderColor = UIColor.white.cgColor
-        //        //        }
-        //        //
-        //        //        if AnswerNumber == 0 {
-        //        //                // Correct answer selected
-        //        //                sender.layer.borderColor = UIColor.green.cgColor
-        //        //            } else {
-        //        //                // Wrong answer selected
-        //        //                sender.layer.borderColor = UIColor.red.cgColor
-        //        //                setCorrectAnswerBorderColor()
-        //        //            }
-        //        //            QNumber += 1
-        //        //            PickQuestion()
-        //    }
-        
-        //    func setCorrectAnswerBorderColor() {
-        //        let correctButton: UIButton?
-        //        switch AnswerNumber {
-        //        case 0: correctButton = btn1
-        //        case 1: correctButton = btn2
-        //        case 2: correctButton = btn3
-        //        case 3: correctButton = btn4
-        //        default: correctButton = nil
-        //        }
-        //        correctButton?.layer.borderColor = UIColor.green.cgColor
-        //   }
-        
-        //        }
-        
-    }
-    
-    //
-    @IBAction func btn2Tapped(_ sender: UIButton) {
-        //
-        checkAnswer(button: sender, answerIndex: 1)
-        //            if let currentQuestion = currentQuestion {
-        //                   checkAnswer(button: sender, answerIndex: 0)
-        //                   if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                       sender.layer.borderColor = UIColor.green.cgColor
-        //                   } else {
-        //                       sender.layer.borderColor = UIColor.red.cgColor
-        //                       if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-        //                           // Highlight the correct answer with a green border
-        //                           highlightCorrectAnswer(index: correctIndex)
-        //                       }
-        //                   }
-        //                   // Load the next question
-        //                   displayNextQuestion()
-        //        if let currentQuestion = questions.first {
-        //            checkAnswer(button: sender, answerIndex: 1)
-        //                if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                    sender.layer.borderColor = UIColor.green.cgColor
-        //                } else {
-        //                    sender.layer.borderColor = UIColor.red.cgColor
-        //
-        //                }
-        //                // Load the next question
-        //                questions.removeFirst()
-        //                displayNextQuestion()
-        //            }
-        //
-        //        //        if AnswerNumber == 1 {
-        //        //            sender.layer.borderColor = UIColor.green.cgColor
-        //        //        } else {
-        //        //            sender.layer.borderColor = UIColor.red.cgColor
-        //        //            setCorrectAnswerBorderColor()
-        //        //        }
-        //        //        QNumber += 1
-        //        //        PickQuestion()
-        //    }
-        
-        //
-        //            }
-    }
-    
-    @IBAction func btn3Tapped(_ sender: UIButton) {
-        //
-        checkAnswer(button: sender, answerIndex: 2)
-        //        if let currentQuestion = currentQuestion {
-        //            checkAnswer(button: sender, answerIndex: 0)
-        //            if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                sender.layer.borderColor = UIColor.green.cgColor
-        //            } else {
-        //                sender.layer.borderColor = UIColor.red.cgColor
-        //                if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-        //                    // Highlight the correct answer with a green border
-        //                    highlightCorrectAnswer(index: correctIndex)
-        //                }
-        //            }
-        //            // Load the next question
-        //            displayNextQuestion()
-        
-        
-        //        if let currentQuestion = questions.first {
-        //            checkAnswer(button: sender, answerIndex: 2)
-        //                if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                    sender.layer.borderColor = UIColor.green.cgColor
-        //                } else {
-        //                    sender.layer.borderColor = UIColor.red.cgColor
-        //
-        //                }
-        //                // Load the next question
-        //                questions.removeFirst()
-        //                displayNextQuestion()
-        //            }
-        //
-        //
-        //        //        if AnswerNumber == 2 {
-        //        //            sender.layer.borderColor = UIColor.green.cgColor
-        //        //        } else {
-        //        //            sender.layer.borderColor = UIColor.red.cgColor
-        //        //            setCorrectAnswerBorderColor()
-        //        //        }
-        //        //        QNumber += 1
-        //        //        PickQuestion()
-        //        }
-    }
-    @IBAction func btn4Tapped(_ sender: UIButton) {
-        
-        checkAnswer(button: sender, answerIndex: 3)
-        //                if let currentQuestion = currentQuestion {
-        //                    checkAnswer(button: sender, answerIndex: 0)
-        //                    if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                        sender.layer.borderColor = UIColor.green.cgColor
-        //                    } else {
-        //                        sender.layer.borderColor = UIColor.red.cgColor
-        //                        if let correctIndex = currentQuestion.answerOptions.firstIndex(where: { $0.isCorrect }) {
-        //                            // Highlight the correct answer with a green border
-        //                            highlightCorrectAnswer(index: correctIndex)
-        //                        }
-        //                    }
-        //                    // Load the next question
-        //
-        //                    displayNextQuestion()
-        
-        //        if let currentQuestion = questions.first {
-        //            checkAnswer(button: sender, answerIndex: 3)
-        //                if currentQuestion.answerOptions.first?.isCorrect == true {
-        //                    sender.layer.borderColor = UIColor.green.cgColor
-        //                } else {
-        //                    sender.layer.borderColor = UIColor.red.cgColor
-        //
-        //
-        //                }
-        //                // Load the next question
-        //                questions.removeFirst()
-        //                displayNextQuestion()
-        //            }
-        //
-        //
-        //        //        if AnswerNumber == 3 {
-        //        //            sender.layer.borderColor = UIColor.green.cgColor
-        //        //        } else {
-        //        //            sender.layer.borderColor = UIColor.red.cgColor
-        //        //            setCorrectAnswerBorderColor()
-        //        //        }
-        //        //        QNumber += 1
-        //        //        PickQuestion()
-        //        //    }
-        //    }
-        
-        //                }
-    }
-    
 }
+
 extension VC5 {
     
     func loader() -> UIAlertController {
@@ -609,12 +386,6 @@ extension VC5 {
         DispatchQueue.main.async {
             loader.dismiss(animated: true,completion: nil)
         }
-        
-        
-        
     }
-    
-    
-    
 }
 
