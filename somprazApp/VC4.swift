@@ -23,9 +23,45 @@ class VC4: UIViewController {
     @IBOutlet weak var techBtn: UIButton!
     @IBOutlet weak var mathsBtn: UIButton!
     
+    var selectedDoctorID = ""
+    var selectedDoctorName = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
+        getPlayedCategory()
+        
+    }
+    
+    func getPlayedCategory() {
+        
+//    https://quizapi-omsn.onrender.com/api/get/user-category/652e6c3ee7ebfa7c955fed2e
+      
+//        call api
+//        after that call setupui and add blur logic to setupui
+        
+        
+        guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/get/user-category/\(selectedDoctorID)") else {
+            print("QUIZ ERROR OCCURRED")
+            return
+        }
+        
+        URLSession.shared.makeRequest(url: url, expecting: doctorModelNew.self) { [weak self] result in
+            switch result {
+            case .success(let doctors):
+                print(result)
+                DispatchQueue.main.async {
+                   //Do something here
+                print(doctors)
+                }
+            case .failure(let error):
+                print(error)
+            }
+//             Dismiss the loading indicator when the network request is complete
+        }
+    }
+    func setUpUI() {
         
         entrtnBtn.setBackgroundImage(UIImage(named: "EntertainmentYellow"), for: .selected)
         astroBtn.setBackgroundImage(UIImage(named: "AstronomyYellow"), for: .selected)
@@ -38,14 +74,6 @@ class VC4: UIViewController {
         wildBtn.setBackgroundImage(UIImage(named: "Wildlife Yellow"), for: .selected)
         techBtn.setBackgroundImage(UIImage(named: "Technology Yellow"), for: .selected)
         mathsBtn.setBackgroundImage(UIImage(named: "Mathematics Yellow"), for: .selected)
-    }
-    
-    func getPlayedCategory() {
-      
-//        call api
-//        after that call setupui and add blur logic to setupui
-    }
-    func setUpUI() {
         
     }
     

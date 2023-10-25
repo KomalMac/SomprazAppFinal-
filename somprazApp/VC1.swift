@@ -13,8 +13,9 @@ class VC1: UIViewController {
     @IBOutlet weak var selectDocName: DropDown!
     @IBOutlet weak var somprazLbl: UILabel!
     
-    var doctorList = [String]()
-  
+    var docDisplayList = [String]()
+    var arrDocList = [SelectDoctorModelElement]()
+    var selectedDoctorID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class VC1: UIViewController {
         
         selectDocName.didSelect{(selectedText , index ,id) in
             print("Selected item: \(selectedText) at index: \(index)")
-            
+            self.selectedDoctorID = self.arrDocList[index].id
             // Close the dropdown when an item is selected
             self.selectDocName.hideList()
             
@@ -58,15 +59,17 @@ class VC1: UIViewController {
                 case .success(let doctors):
                     DispatchQueue.main.async {
                       
-                        self?.doctorList = [String]()
+                        self?.docDisplayList = [String]()
+                        self?.arrDocList = [SelectDoctorModelElement]()
+                        self?.arrDocList = doctors
                         for i in 0..<doctors.count {
                             let docObj = doctors[i]
                             if let name = docObj.doctorName {
                                 let n = "Dr. " + name
-                                self?.doctorList.append(n)
+                                self?.docDisplayList.append(n)
                             }
                         }
-                        self?.selectDocName.optionArray = self?.doctorList ?? [String]()
+                        self?.selectDocName.optionArray = self?.docDisplayList ?? [String]()
                     }
                 case .failure(let error):
                     print(error)
@@ -131,6 +134,7 @@ class VC1: UIViewController {
                 }
         
     }
+    
     @IBAction func docNameDrpDownTapped(_ sender: DropDown) {
 //        if let apiUrl = URL(string: "https://quizapi-omsn.onrender.com/api/get/docter/name") {
 //            let session = URLSession.shared
@@ -165,6 +169,8 @@ class VC1: UIViewController {
         if let selectedDoctorName = selectDocName.text, !selectedDoctorName.isEmpty {
             // Proceed to the next screen
             if let VC = self.storyboard?.instantiateViewController(withIdentifier: "VC4") as? VC4 {
+                VC.selectedDoctorID = selectedDoctorID
+                VC.selectedDoctorName = selectedDoctorName
                 self.navigationController?.pushViewController(VC, animated: true)
             }
         } else {

@@ -11,27 +11,65 @@ import Foundation
 //
 //   let doctorModel = try? JSONDecoder().decode(DoctorModel.self, from: jsonData)
 
-// MARK: - DoctorModelElement
-struct DoctorModelElement: Codable {
-    let quizCategory: QuizCategory
-    let id: String
-    let doctorName, city, state: String?
-    let v: Int
+//// MARK: - DoctorModelElement
+//struct DoctorModelElement: Codable {
+//    let quizCategory: QuizCategory?
+//    let id: String?
+//    let doctorName, city, state: String?
+//    let v: Int?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case quizCategory = "QuizCategory"
+//        case id = "_id"
+//        case doctorName, city, state
+//        case v = "__v"
+//    }
+//}
+//
+//// MARK: - QuizCategory
+struct QuizCategory: Codable {
+    let entertainment, astronomy, history, science, literature, geography, wildlife, technology, mathematics: playedInfo?
 
     enum CodingKeys: String, CodingKey {
-        case quizCategory = "QuizCategory"
-        case id = "_id"
-        case doctorName, city, state
-        case v = "__v"
+        case entertainment = "Entertainment"
+        case astronomy = "Astronomy"
+        case history = "History"
+        case science = "Science"
+        case literature = "Literature"
+        case geography = "Geography"
+        case wildlife = "Wildlife"
+        case technology = "Technology"
+        case mathematics = "Mathematics"
     }
 }
+//
+//// MARK: - Astronomy
+struct playedInfo: Codable {
+    let isPlayed: Bool
+    let totalPoints: Int?
 
-// MARK: - QuizCategory
-struct QuizCategory: Codable {
-    let entertainment, astronomy, history, science: Astronomy
-    let literature, geography, wildlife: Astronomy
-    let technology: Technology
-    let mathematics: Astronomy
+    enum CodingKeys: String, CodingKey {
+        case isPlayed
+        case totalPoints = "TotalPoints"
+    }
+}
+//
+//typealias DoctorModel = [DoctorModelElement]
+
+
+
+
+typealias doctorModelNew = [QuizCategory]
+
+
+
+
+struct DoctorModelElement: Codable {
+    let entertainment: Astronomy?
+    let astronomy, history, science, literature: Astronomy?
+    let geography: Astronomy?
+    let wildlife, technology: Entertainment?
+    let mathematics: Astronomy?
 
     enum CodingKeys: String, CodingKey {
         case entertainment = "Entertainment"
@@ -57,8 +95,8 @@ struct Astronomy: Codable {
     }
 }
 
-// MARK: - Technology
-struct Technology: Codable {
+// MARK: - Entertainment
+struct Entertainment: Codable {
     let isPlayed: Bool
 }
 
