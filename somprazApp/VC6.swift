@@ -8,10 +8,6 @@
 import UIKit
 
 class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
-    
     @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var lbImgView: UIImageView!

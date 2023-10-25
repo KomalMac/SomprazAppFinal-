@@ -8,19 +8,6 @@
 import UIKit
 import Foundation
 
-struct Question {
-    
-    var Question : String!
-    var Answers : [String]!
-    var Answer : Int!
-    
-    var answer: String
-    var isCorrect: Bool
-    var id: String
-    
-    
-}
-
 class VC5: UIViewController {
     
     @IBOutlet weak var mainImgView: UIImageView!
@@ -39,10 +26,6 @@ class VC5: UIViewController {
     @IBOutlet weak var btn3: UIButton!
     @IBOutlet weak var btn4: UIButton!
     
-    
-    //    var Questions  = [Question]()
-    //    var QNumber = Int()
-    //    var AnswerNumber = Int()
     var question: String = ""
     var arrAllQuestions = [QuizModelElement]()
     var arrSelectedCategoryQuestion = [QuizModelElement]()
@@ -65,9 +48,6 @@ class VC5: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         self.title = "" // Set an empty title
         // or
         self.navigationItem.title = nil
@@ -149,12 +129,6 @@ class VC5: UIViewController {
             self?.stopLoader(loader: loader)
         }
     }
-    func selectCategory() {
-        
-        
-        //                    self?.questions.sort(by: <#T##(QuizModelElement, QuizModelElement) throws -> Bool#>)
-        
-    }
     
     func updateCurrentQuestion() {
         print("arrSelectedCategoryQuestion count is \(arrSelectedCategoryQuestion.count)")
@@ -168,13 +142,6 @@ class VC5: UIViewController {
                     break
                 }
             }
-            
-            //            arrSelectedCategoryQuestion.forEach { quest in
-            //                if !displayedQuestionsID.contains(quest.id), displayedQuestionsID.count <= arrSelectedCategoryQuestion.count {
-            //                    currentQuestion = quest
-            //                    displayQuestion()
-            //                }
-            //            }
         } else {
             let alert = UIAlertController(title: "Oops", message: "No questions available for \(selectedCategory)", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
@@ -200,7 +167,6 @@ class VC5: UIViewController {
     
     
     func displayQuestion() {
-        //        selectCategory()
         if let currentQuestion = currentQuestion {
             displayedQuestionsID.append(currentQuestion.id)
             for i in 0..<arrSelectedCategoryQuestion.count {
@@ -257,27 +223,6 @@ class VC5: UIViewController {
         }
     }
     
-    
-    //    
-    //    @objc func updateTimer() {
-    //        if remainingTime > 0 {
-    //            remainingTime -= 1
-    //            timerLbl.text = String(remainingTime)
-    //        } else {
-    //            DispatchQueue.main.async {
-    //                
-    //                
-    //                // Time's up, create and present the custom alert view controller
-    //                self.timer?.invalidate() // Stop the timer
-    //                let customTimeoutAlert = CustomTimeoutAlertViewController()
-    ////                customTimeoutAlert.score = self.calculateScore() // Set the score
-    //                customTimeoutAlert.modalPresentationStyle = .overCurrentContext
-    //                customTimeoutAlert.modalTransitionStyle = .crossDissolve
-    //                self.present(customTimeoutAlert, animated: true, completion: nil)
-    //            }
-    //        }
-    //    }
-    
     func calculateScore() -> Int {
         // Implement your logic to calculate the score based on user's answers
         // Return the score value
@@ -286,16 +231,10 @@ class VC5: UIViewController {
     
     
     func displayNextQuestion() {
-        //        if let currentQuestion = arrAllQuestions.first {
-        //            quesLbl.text = currentQuestion.question
-        //        } else {
-        //            // Handle the case when there are no more questions
-        //        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.resetAnswers()
             self.updateCurrentQuestion()
         }
-        
     }
     
     func resetAnswers() {
@@ -349,15 +288,12 @@ class VC5: UIViewController {
                 }
             }
             // Load the next question
-            //            arrAllQuestions.removeFirst()
             displayNextQuestion()
         }
     }
     
     @IBAction func onBtnTapped(_ sender: UIButton) {
-        
         checkAnswer(button: sender, answerIndex: sender.tag)
-        
     }
     
 }

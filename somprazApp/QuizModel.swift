@@ -14,14 +14,6 @@ import Foundation
 // MARK: - QuizModelElement
 
 struct QuizModelElement: Codable {
-//    static func < (lhs: QuizModelElement, rhs: QuizModelElement) -> Bool {
-//        <#code#>
-//    }
-//    
-//    static func == (lhs: QuizModelElement, rhs: QuizModelElement) -> Bool {
-//        <#code#>
-//    }
-    
     let id, question: String
     let category: String
     let answerOptions: [AnswerOption]

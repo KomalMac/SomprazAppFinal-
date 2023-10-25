@@ -27,9 +27,6 @@ class VC4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        var intTag = 0
-        
         entrtnBtn.setBackgroundImage(UIImage(named: "EntertainmentYellow"), for: .selected)
         astroBtn.setBackgroundImage(UIImage(named: "AstronomyYellow"), for: .selected)
         historyBtn.setBackgroundImage(UIImage(named: "HistoryYellow"), for: .selected)
@@ -41,23 +38,6 @@ class VC4: UIViewController {
         wildBtn.setBackgroundImage(UIImage(named: "Wildlife Yellow"), for: .selected)
         techBtn.setBackgroundImage(UIImage(named: "Technology Yellow"), for: .selected)
         mathsBtn.setBackgroundImage(UIImage(named: "Mathematics Yellow"), for: .selected)
-        
-        //        // Add tap gesture recognizer to entertnIV
-        //              let gesture1 = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
-        //              entertnIV.isUserInteractionEnabled = true
-        //              entertnIV.addGestureRecognizer(gesture1)
-        //        
-        //        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_:)))
-        //        astroIV.isUserInteractionEnabled = true
-        //        astroIV.addGestureRecognizer(tapGesture2)
-        
-        //        entrtnBtn.backgroundImage(UIImage(named: "EntertainmentWhite"), for: .normal)
-        
-        //        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_:)))
-        //        historyIV.isUserInteractionEnabled = true
-        //        historyIV.addGestureRecognizer(tapGesture3)
-        //        
-        // Add similar tap gestures for other image views
     }
     
     func getPlayedCategory() {
@@ -218,8 +198,4 @@ class VC4: UIViewController {
         VC.selectedCategory = selectedCategory
         self.navigationController?.pushViewController(VC, animated: true)
     }
-    
-    
-    
-    
 }
