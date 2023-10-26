@@ -34,10 +34,11 @@ class VC5: UIViewController {
     var correctAnswer: Int?
     var selectedCategory: String = ""
     var displayedQuestionsID = [String]()
-    
-    
-    
     var Id: String = ""
+    
+    var selectedDoctorName = ""
+    var selectedDoctorID = ""
+    
     // timer
     var time = 0
     
@@ -203,7 +204,7 @@ class VC5: UIViewController {
             // Create an instance of CustomTimeoutAlertViewController
             let customTimeoutAlert = storyboard?.instantiateViewController(withIdentifier: "CustomTimeoutAlertViewController") as! CustomTimeoutAlertViewController
             customTimeoutAlert.score = self.calculateScore() // Set the score
-            
+            customTimeoutAlert.name = selectedDoctorName
             // Present the CustomTimeoutAlertViewController modally
             customTimeoutAlert.modalPresentationStyle = .overCurrentContext // Set the presentation style as needed
             customTimeoutAlert.modalTransitionStyle = .crossDissolve // Set the transition style as needed
@@ -214,7 +215,8 @@ class VC5: UIViewController {
                         customTimeoutAlert.dismiss(animated: true) {
                             // Create an instance of VC6
                             let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
-
+                            vc6.selectedDoctorID = self.selectedDoctorID
+                            vc6.selectedDoctorName = self.selectedDoctorName
                             // Push VC6 onto the navigation stack
                             self.navigationController?.pushViewController(vc6, animated: true)
                         }

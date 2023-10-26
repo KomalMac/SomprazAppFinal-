@@ -224,6 +224,8 @@ class VC4: UIViewController {
         let VC = storyboard?.instantiateViewController(withIdentifier: "VC5") as! VC5
         VC.Id = intTag
         VC.selectedCategory = selectedCategory
+        VC.selectedDoctorID = selectedDoctorID
+        VC.selectedDoctorName = selectedDoctorName
         self.navigationController?.pushViewController(VC, animated: true)
     }
 }

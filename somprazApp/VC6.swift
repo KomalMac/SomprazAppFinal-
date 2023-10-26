@@ -20,6 +20,9 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedDoctorName = ""
+    var selectedDoctorID = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,7 +49,8 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
 
         // Configure your cell
-
+        cell.lblID.text = "ID :" + selectedDoctorID
+        cell.lblName.text = "Name :" + selectedDoctorName
         return cell
     }
 
