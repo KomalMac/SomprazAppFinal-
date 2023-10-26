@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r9W-Du-MF1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dgs-sF-6Dg">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -781,8 +781,24 @@
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5l6-nr-Okk" id="62x-dA-hvP">
                                                     <rect key="frame" x="0.0" y="0.0" width="510" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYk-xn-SVZ">
+                                                            <rect key="frame" x="135" y="-54" width="240" height="128"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="sYk-xn-SVZ" secondAttribute="bottom" id="2hC-sn-NnU"/>
+                                                        <constraint firstItem="sYk-xn-SVZ" firstAttribute="top" secondItem="62x-dA-hvP" secondAttribute="top" id="Kxl-fz-2S9"/>
+                                                        <constraint firstItem="sYk-xn-SVZ" firstAttribute="leading" secondItem="62x-dA-hvP" secondAttribute="leading" id="R2g-MX-4CB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sYk-xn-SVZ" secondAttribute="trailing" id="iKj-zF-dYa"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <connections>
+                                                    <outlet property="cellView" destination="sYk-xn-SVZ" id="Cxf-5V-gI0"/>
+                                                    <outlet property="contentView" destination="62x-dA-hvP" id="afJ-gc-psU"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>

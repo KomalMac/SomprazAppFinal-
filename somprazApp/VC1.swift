@@ -33,10 +33,8 @@ class VC1: UIViewController {
         selectDocName.inputView = UIView()
         
         getDoctorList()
-//                Assign the data source to the selectDocNameTF (which is now a DropDown)
-//        selectDocName.optionArray = ["DR A", "DR B", "DR C", "DR D", "DR E"]
-        
-        
+
+
         selectDocName.didSelect{(selectedText , index ,id) in
             print("Selected item: \(selectedText) at index: \(index)")
             self.selectedDoctorID = self.arrDocList[index].id

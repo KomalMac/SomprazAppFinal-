@@ -32,42 +32,41 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         lbLabel.layer.cornerRadius = 20
         
        // add print mesage
+        tableView.backgroundColor = .blue
+        tableView.separatorColor = UIColor.gray // Set your desired color
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-//        return imageArray.count
+        // Return the number of rows
         return 10
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
-            
-//            // Set the background color of the cell's contentView to blue
-//            cell.contentView.backgroundColor = UIColor.lightGray
-            
-            // Configure the cell's other properties (text, images, etc.) here
-        // Set the separator insets
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-            return cell
-      
+
+        // Configure your cell
+
+        return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100 // Adjust this value as needed
+        let cellHeight = 100 // Adjust this value to your content size
+        let spaceHeight = 10 // Adjust this value to the desired space
+        return CGFloat(cellHeight + spaceHeight)
     }
+
+
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // 1
-        let headerView = UIView()
-        // 2
-        headerView.backgroundColor = view.backgroundColor
-        // 3
-        return headerView
+        let spacingView = UIView()
+        spacingView.backgroundColor = .clear
+        return spacingView
     }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 10 // Adjust this value as needed
     }
+
 
 }
