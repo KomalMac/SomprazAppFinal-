@@ -47,11 +47,12 @@ class VC4: UIViewController {
             return
         }
         
-        URLSession.shared.makeRequest(url: url, expecting: doctorModelNew.self) { [weak self] result in
+        URLSession.shared.makeRequest(url: url, expecting: DoctorModel.self) { [weak self] result in
             switch result {
             case .success(let doctors):
                 print(result)
                 DispatchQueue.main.async {
+                    self?.updateBlurbutton(doctorsList: doctors)
                    //Do something here
                 print(doctors)
                 }
@@ -61,6 +62,48 @@ class VC4: UIViewController {
 //             Dismiss the loading indicator when the network request is complete
         }
     }
+    
+    func updateBlurbutton(doctorsList: DoctorModel) {
+        
+        for i in 0..<doctorsList.count {
+            let doctor = doctorsList[i].isPlayed
+            if !doctor {
+                switch i {
+                case 0:
+                    entrtnBtn.addBlurEffect()
+                    entrtnBtn.isUserInteractionEnabled = false
+                case 1:
+                    astroBtn.addBlurEffect()
+                    astroBtn.isUserInteractionEnabled = false
+                case 2:
+                    historyBtn.addBlurEffect()
+                    historyBtn.isUserInteractionEnabled = false
+                case 3:
+                    scienceBtn.addBlurEffect()
+                    scienceBtn.isUserInteractionEnabled = false
+                case 4:
+                    literBtn.addBlurEffect()
+                    literBtn.isUserInteractionEnabled = false
+                case 5:
+                    geoBtn.addBlurEffect()
+                    geoBtn.isUserInteractionEnabled = false
+                case 6:
+                    wildBtn.addBlurEffect()
+                    wildBtn.isUserInteractionEnabled = false
+                case 7:
+                    techBtn.addBlurEffect()
+                    techBtn.isUserInteractionEnabled = false
+                case 8:
+                    mathsBtn.addBlurEffect()
+                    mathsBtn.isUserInteractionEnabled = false
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
+    
     func setUpUI() {
         
         entrtnBtn.setBackgroundImage(UIImage(named: "EntertainmentYellow"), for: .selected)
@@ -227,5 +270,31 @@ class VC4: UIViewController {
         VC.selectedDoctorID = selectedDoctorID
         VC.selectedDoctorName = selectedDoctorName
         self.navigationController?.pushViewController(VC, animated: true)
+    }
+}
+
+
+extension UIButton {
+    func addBlurEffect(style: UIBlurEffect.Style = .regular, cornerRadius: CGFloat = 0, padding: CGFloat = 0) {
+        backgroundColor = .clear
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: style))
+        blurView.isUserInteractionEnabled = false
+        blurView.backgroundColor = .clear
+        if cornerRadius > 0 {
+            blurView.layer.cornerRadius = cornerRadius
+            blurView.layer.masksToBounds = true
+        }
+        self.insertSubview(blurView, at: 0)
+
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: blurView.leadingAnchor, constant: padding).isActive = true
+        self.trailingAnchor.constraint(equalTo: blurView.trailingAnchor, constant: -padding).isActive = true
+        self.topAnchor.constraint(equalTo: blurView.topAnchor, constant: padding).isActive = true
+        self.bottomAnchor.constraint(equalTo: blurView.bottomAnchor, constant: -padding).isActive = true
+
+        if let imageView = self.imageView {
+            imageView.backgroundColor = .clear
+            self.bringSubviewToFront(imageView)
+        }
     }
 }
