@@ -22,36 +22,74 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var selectedDoctorName = ""
     var selectedDoctorID = ""
+    var leaderboard: [DoctorInfo] = []
+    var selectedCategory: String = "selectedCategory"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
         
+
         boardIV.layer.borderWidth = 2
         lbLabel.layer.borderWidth = 2
         boardIV.layer.cornerRadius = 20
         lbLabel.layer.cornerRadius = 20
+        getdoctorsCategory()
         
+        tableView.delegate = self
+        tableView.dataSource = self
        // add print mesage
         tableView.backgroundColor = .blue
         tableView.separatorColor = UIColor.gray // Set your desired color
 
     }
     
+//    api = https://quizapi-omsn.onrender.com/api/get/leaderboard/${category}
+    
+    func getdoctorsCategory() {
+        
+        let category = selectedCategory
+        print("Selected category: \(category)")
+        
+        if let url = URL(string: "https://quizapi-omsn.onrender.com/api/get/leaderboard/\(category)") {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    do {
+                        let leaderboardData = try JSONDecoder().decode(LeaderboardData.self, from: data)
+                        // Update the UI on the main thread
+                        // Update the UI on the main thread
+                        DispatchQueue.main.async {
+                            self.leaderboard = leaderboardData.categoryLeaderboard
+                            self.lbLabel.text = "Category: " + self.selectedCategory // Update lbLabel
+                            self.tableView.reloadData()
+                            print("Data loaded and table view reloaded. Count: \(self.leaderboard.count)")
+                        }
+
+                    } catch {
+                        print("Error decoding JSON: \(error)")
+                    }
+                } else if let error = error {
+                    print("Error fetching data: \(error)")
+                }
+            }.resume()
+        }
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows
-        return 10
+        return leaderboard.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
 
-        // Configure your cell
-        cell.lblID.text = "ID :" + selectedDoctorID
-        cell.lblName.text = "Name :" + selectedDoctorName
-        return cell
+            let doctorInfo = leaderboard[indexPath.row]
+            cell.lblID.text = "Doctor Name: " + doctorInfo.doctorName
+            cell.lblName.text = "City: " + doctorInfo.city
+            // You can display other information like state and score as needed
+
+            return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

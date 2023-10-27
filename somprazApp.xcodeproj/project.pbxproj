@@ -30,6 +30,7 @@
 		77B5EA762AD403BD005D215F /* VC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA752AD403BD005D215F /* VC1.swift */; };
 		77BB49632ADC664800CCD73A /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB49622ADC664800CCD73A /* QuizModel.swift */; };
 		77BB49652ADC668B00CCD73A /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB49642ADC668B00CCD73A /* ServiceLayer.swift */; };
+		77CE38B42AEBC6B2001DA89C /* LeaderBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */; };
 		AD3F5E496AC17F8B048946BF /* Pods_somprazAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8064E11ADCAA5DA3DCABA729 /* Pods_somprazAppTests.framework */; };
 		CA6430472805B3E9B970161D /* Pods_somprazApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210FFE09616548E333713EC6 /* Pods_somprazApp.framework */; };
 		D1157345A714A0FF4FB086F6 /* Pods_somprazApp_somprazAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E48AFB90FE2EFED69BD7B61 /* Pods_somprazApp_somprazAppUITests.framework */; };
@@ -88,6 +89,7 @@
 		77B5EA752AD403BD005D215F /* VC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC1.swift; sourceTree = "<group>"; };
 		77BB49622ADC664800CCD73A /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		77BB49642ADC668B00CCD73A /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardModel.swift; sourceTree = "<group>"; };
 		8064E11ADCAA5DA3DCABA729 /* Pods_somprazAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_somprazAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				77B5EA492AD3D218005D215F /* Main.storyboard */,
 				77A577102ADFC75300F04135 /* DoctorTVC.swift */,
 				77A5770E2ADFAC5800F04135 /* VC6.swift */,
+				77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */,
 				77AE4AD22AD69F180057E316 /* VC5.swift */,
 				779F431C2AD53645000310EB /* VC4.swift */,
 				779F431A2AD52D80000310EB /* VC3.swift */,
@@ -464,6 +467,7 @@
 				77A5770D2ADEA5CB00F04135 /* DoctorModel.swift in Sources */,
 				77BB49652ADC668B00CCD73A /* ServiceLayer.swift in Sources */,
 				77B5EA442AD3D218005D215F /* AppDelegate.swift in Sources */,
+				77CE38B42AEBC6B2001DA89C /* LeaderBoardModel.swift in Sources */,
 				77B5EA462AD3D218005D215F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

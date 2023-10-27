@@ -21,6 +21,7 @@ class VC5: UIViewController {
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     
+    @IBOutlet weak var scoreLbl: UILabel!
     
     @IBOutlet weak var stackView2: UIStackView!
     @IBOutlet weak var btn3: UIButton!
@@ -44,7 +45,8 @@ class VC5: UIViewController {
     
     weak var timer: Timer?
     // Add a property to store the remaining time
-    var remainingTime = 10 // Adjust the initial time as needed
+    var remainingTime = 40 // Adjust the initial time as needed
+    var score = 0
     
     
     override func viewDidLoad() {
@@ -192,7 +194,6 @@ class VC5: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    
     @objc func updateTimer() {
         if remainingTime > 0 {
             remainingTime -= 1
@@ -200,35 +201,89 @@ class VC5: UIViewController {
         } else {
             // Time's up, create and present the custom alert view controller
             self.timer?.invalidate() // Stop the timer
-            
+
             // Create an instance of CustomTimeoutAlertViewController
             let customTimeoutAlert = storyboard?.instantiateViewController(withIdentifier: "CustomTimeoutAlertViewController") as! CustomTimeoutAlertViewController
             customTimeoutAlert.score = self.calculateScore() // Set the score
             customTimeoutAlert.name = selectedDoctorName
+
             // Present the CustomTimeoutAlertViewController modally
             customTimeoutAlert.modalPresentationStyle = .overCurrentContext // Set the presentation style as needed
             customTimeoutAlert.modalTransitionStyle = .crossDissolve // Set the transition style as needed
             self.present(customTimeoutAlert, animated: true, completion: nil)
             
-            // After 5 seconds, dismiss the alert controller and push VC6
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                        customTimeoutAlert.dismiss(animated: true) {
-                            // Create an instance of VC6
-                            let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
-                            vc6.selectedDoctorID = self.selectedDoctorID
-                            vc6.selectedDoctorName = self.selectedDoctorName
-                            // Push VC6 onto the navigation stack
-                            self.navigationController?.pushViewController(vc6, animated: true)
-                        }
-                    }
             
+//            post api to save tottals points ,categoryname and userid
+//            api = https://quizapi-omsn.onrender.com/api/submit/score
+            
+            
+            
+            
+            
+
+            // After 5 seconds, dismiss the alert controller and push VC6
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                customTimeoutAlert.dismiss(animated: true) {
+                    // Create an instance of VC6
+                    let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
+                    vc6.selectedDoctorID = self.selectedDoctorID
+                    vc6.selectedDoctorName = self.selectedDoctorName
+                    // Push VC6 onto the navigation stack
+                    self.navigationController?.pushViewController(vc6, animated: true)
+                    
+                    
+                    // Make the POST request
+                                    self.submitScore()
+                }
+            }
+        }
+    }
+
+    //            post api to save tottals points ,categoryname and userid
+    //            api = https://quizapi-omsn.onrender.com/api/submit/score
+    func submitScore() {
+        // Define the URL for the API
+        let apiUrl = "https://quizapi-omsn.onrender.com/api/submit/score"
+
+        // Define the JSON data to be sent in the request
+        let json: [String: Any] = [
+            "totalPoints": score,
+            "categoryName": selectedCategory,
+            "userId": selectedDoctorID
+        ]
+
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json)
+
+            // Create the URLRequest
+            var request = URLRequest(url: URL(string: apiUrl)!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            // Create a URLSession task for the request
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    // Handle the error, e.g., show an alert
+                } else if let data = data {
+                    // Handle the response data, if needed
+                    print("Response data: \(String(data: data, encoding: .utf8) ?? "No data")")
+                }
+            }
+
+            // Execute the task
+            task.resume()
+        } catch {
+            print("Error serializing JSON: \(error)")
+            // Handle the error, e.g., show an alert
         }
     }
     
     func calculateScore() -> Int {
         // Implement your logic to calculate the score based on user's answers
         // Return the score value
-        return 42 // Replace with your score calculation
+        return score // Replace with your score calculation
     }
     
     
@@ -295,7 +350,17 @@ class VC5: UIViewController {
     }
     
     @IBAction func onBtnTapped(_ sender: UIButton) {
-        checkAnswer(button: sender, answerIndex: sender.tag)
+//        checkAnswer(button: sender, answerIndex: sender.tag)
+        if let currentQuestion = currentQuestion {
+                if currentQuestion.answerOptions[sender.tag].isCorrect {
+                    // Correct answer selected
+                    // Increase the score by 10
+                    score += 10
+                }
+            // Update the score label with the current score
+                    scoreLbl.text = "Score: \(score)"
+                checkAnswer(button: sender, answerIndex: sender.tag)
+            }
     }
     
 }

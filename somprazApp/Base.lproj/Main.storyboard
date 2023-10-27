@@ -619,7 +619,7 @@
                                     <constraint firstAttribute="height" constant="70" id="crW-Ce-vEX"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 10 Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42C-gz-Bx5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42C-gz-Bx5" userLabel="Score :">
                                 <rect key="frame" x="50" y="534" width="924" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ZVD-he-Rrf"/>
@@ -673,6 +673,7 @@
                         <outlet property="mainImgView" destination="RIM-Uw-oEg" id="OoN-Nu-7Kg"/>
                         <outlet property="ques4IV" destination="9p8-4W-uwq" id="Y4s-Qm-hMA"/>
                         <outlet property="quesLbl" destination="bSB-rr-CNu" id="JWe-68-tSz"/>
+                        <outlet property="scoreLbl" destination="42C-gz-Bx5" id="mrB-gm-oBG"/>
                         <outlet property="stackView1" destination="wc5-Xe-oMG" id="S2F-bI-O5b"/>
                         <outlet property="stackView2" destination="KkL-2M-RDh" id="ZYz-gk-7Qg"/>
                         <outlet property="timerLbl" destination="dtc-W0-6WL" id="jSS-2j-lu1"/>
@@ -741,7 +742,7 @@
                                             <constraint firstAttribute="width" constant="100" id="XgH-9D-gAs"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr Ankit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCi-vE-bJh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCi-vE-bJh">
                                         <rect key="frame" x="150" y="170" width="100" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="2WL-Ba-WuO"/>
@@ -751,7 +752,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr Smit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbk-hg-Skk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbk-hg-Skk">
                                         <rect key="frame" x="275" y="150" width="100" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="TAi-JC-IY2"/>
@@ -761,7 +762,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr Anu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d64-Wn-ghB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d64-Wn-ghB">
                                         <rect key="frame" x="400" y="170" width="100" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="5P8-vQ-kGp"/>
@@ -864,7 +865,7 @@
                                     <constraint firstItem="kjO-z9-aaH" firstAttribute="leading" secondItem="s6i-Ro-Oq8" secondAttribute="leading" constant="70" id="yBW-FC-b9k"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEADERBOARD : GEOGRAPHY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-Mo-fha">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOk-Mo-fha">
                                 <rect key="frame" x="330" y="70" width="364" height="60"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
@@ -913,7 +914,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NW4-9v-e54" customClass="Alert">
                                 <rect key="frame" x="0.0" y="20" width="1021" height="745"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timeout1" translatesAutoresizingMaskIntoConstraints="NO" id="M3X-AE-yqv">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timeout4" translatesAutoresizingMaskIntoConstraints="NO" id="M3X-AE-yqv">
                                         <rect key="frame" x="0.0" y="247.5" width="1013" height="250"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="x8f-ys-1nq"/>
@@ -993,7 +994,7 @@
         <image name="Mathematics White" width="1084" height="251"/>
         <image name="Science White 1" width="1090" height="246"/>
         <image name="Technology White" width="1086" height="255"/>
-        <image name="Timeout1" width="2856" height="806"/>
+        <image name="Timeout4" width="2843" height="802"/>
         <image name="Wildlife White" width="1088" height="246"/>
         <image name="board (1)" width="1567" height="1575"/>
         <image name="crown1" width="215" height="116"/>

@@ -17,6 +17,7 @@ class VC1: UIViewController {
     var arrDocList = [SelectDoctorModelElement]()
     var selectedDoctorID = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -159,6 +160,7 @@ class VC1: UIViewController {
 //            print("Invalid URL")
 //        }
     }
+    
 
 
     // Add an action for the Submit button
@@ -182,13 +184,13 @@ class VC1: UIViewController {
 }
 extension VC1: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == enterDocNameTF {
-            placeTF.becomeFirstResponder() // Move focus to the placeTF
-        } else if textField == placeTF {
-            textField.resignFirstResponder() // Hide the keyboard
+            if textField == enterDocNameTF {
+                placeTF.becomeFirstResponder()  // Move focus to the placeTF
+            } else if textField == placeTF {
+                textField.resignFirstResponder()  // Hide the keyboard
+            }
+            return true
         }
-        return true
-    }
 }
 
 
