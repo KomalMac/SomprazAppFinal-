@@ -400,8 +400,14 @@
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJq-BT-bdc">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="EntertainmentWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="onBtnTapped:" destination="Hrq-cL-1MM" eventType="touchUpInside" id="Itd-vi-iYs"/>
                                         </connections>
