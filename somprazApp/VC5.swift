@@ -40,12 +40,14 @@ class VC5: UIViewController {
     var selectedDoctorName = ""
     var selectedDoctorID = ""
     
+    var customTimeoutAlert : CustomTimeoutAlertViewController?
+    
     // timer
     var time = 0
     
     weak var timer: Timer?
     // Add a property to store the remaining time
-    var remainingTime = 60 // Adjust the initial time as needed
+    var remainingTime = 20 // Adjust the initial time as needed
     var score = 0
     
     
@@ -75,7 +77,16 @@ class VC5: UIViewController {
         
         setUpUI()
         
+        if let customTimeout = self.storyboard?.instantiateViewController(withIdentifier: "CustomTimeoutAlertViewController") as? CustomTimeoutAlertViewController {
+            customTimeoutAlert = customTimeout
+        }
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        timer?.invalidate()
+        timer = nil
     }
     
     func setUpUI() {
@@ -143,9 +154,15 @@ class VC5: UIViewController {
                 }
             }
         } else {
-            let alert = UIAlertController(title: "Oops", message: "No questions available for \(selectedCategory)", preferredStyle: .alert)
+            self.displayNoQuestionAlert()
+        }
+    }
+    
+    func displayNoQuestionAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Oops", message: "No questions available for \(self.selectedCategory)", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
-                self.navigationController?.popViewController(animated: true)
+//                self.navigationController?.popViewController(animated: true)
             }
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
@@ -160,6 +177,7 @@ class VC5: UIViewController {
         
         if arrSelectedCategoryQuestion.isEmpty {
             print("No questions found for category: \(self.selectedCategory)")
+            displayNoQuestionAlert()
         } else {
             self.updateCurrentQuestion() // Update the UI with the selected question
         }
@@ -200,42 +218,24 @@ class VC5: UIViewController {
             remainingTime -= 1
             timerLbl.text = String(remainingTime)
         } else {
-            // Time's up, create and present the custom alert view controller
-            self.timer?.invalidate() // Stop the timer
+            
+            DispatchQueue.main.async {
+                // Time's up, create and present the custom alert view controller
+                self.timer?.invalidate() // Stop the timer
+                self.timer = nil
+                
+                // Submit score
+                self.submitScore()
+                
+                // Create an instance of CustomTimeoutAlertViewController
+                self.customTimeoutAlert?.score = self.calculateScore() // Set the score
+                self.customTimeoutAlert?.name = self.selectedDoctorName
 
-            // Create an instance of CustomTimeoutAlertViewController
-            let customTimeoutAlert = storyboard?.instantiateViewController(withIdentifier: "CustomTimeoutAlertViewController") as! CustomTimeoutAlertViewController
-            customTimeoutAlert.score = self.calculateScore() // Set the score
-            customTimeoutAlert.name = selectedDoctorName
-
-            // Present the CustomTimeoutAlertViewController modally
-            customTimeoutAlert.modalPresentationStyle = .overCurrentContext // Set the presentation style as needed
-            customTimeoutAlert.modalTransitionStyle = .crossDissolve // Set the transition style as needed
-            self.present(customTimeoutAlert, animated: true, completion: nil)
-            
-            
-//            post api to save tottals points ,categoryname and userid
-//            api = https://quizapi-omsn.onrender.com/api/submit/score
-            
-            
-            
-            
-            
-
-            // After 5 seconds, dismiss the alert controller and push VC6
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                customTimeoutAlert.dismiss(animated: true) {
-                    // Create an instance of VC6
-                    let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
-                    vc6.selectedDoctorID = self.selectedDoctorID
-                    vc6.selectedDoctorName = self.selectedDoctorName
-                    // Push VC6 onto the navigation stack
-                    self.navigationController?.pushViewController(vc6, animated: true)
-                    
-                    
-                    // Make the POST request
-                                    self.submitScore()
-                }
+                // Present the CustomTimeoutAlertViewController modally
+                self.customTimeoutAlert?.modalPresentationStyle = .overCurrentContext // Set the presentation style as needed
+                self.customTimeoutAlert?.modalTransitionStyle = .crossDissolve // Set the transition style as needed
+                self.present(self.customTimeoutAlert ?? CustomTimeoutAlertViewController(), animated: true, completion: nil)
+                
             }
         }
     }
@@ -270,6 +270,21 @@ class VC5: UIViewController {
                 } else if let data = data {
                     // Handle the response data, if needed
                     print("Response data: \(String(data: data, encoding: .utf8) ?? "No data")")
+                    
+                    //            post api to save tottals points ,categoryname and userid
+                    //            api = https://quizapi-omsn.onrender.com/api/submit/score
+                                
+                                // After 5 seconds, dismiss the alert controller and push VC6
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                                    self.customTimeoutAlert?.dismiss(animated: true) {
+                                        // Create an instance of VC6
+                                        let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
+                                        vc6.selectedDoctorID = self.selectedDoctorID
+                                        vc6.selectedDoctorName = self.selectedDoctorName
+                                        // Push VC6 onto the navigation stack
+                                        self.navigationController?.pushViewController(vc6, animated: true)
+                                    }
+                                }
                 }
             }
 

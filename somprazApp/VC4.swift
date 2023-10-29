@@ -70,31 +70,31 @@ class VC4: UIViewController {
             if doctor {
                 switch i {
                 case 0:
-                    entrtnBtn.addBlurEffect()
+                    entrtnBtn.addBlurEffect(cornerRadius: 20)
                     entrtnBtn.isUserInteractionEnabled = false
                 case 1:
-                    astroBtn.addBlurEffect()
+                    astroBtn.addBlurEffect(cornerRadius: 20)
                     astroBtn.isUserInteractionEnabled = false
                 case 2:
-                    historyBtn.addBlurEffect()
+                    historyBtn.addBlurEffect(cornerRadius: 20)
                     historyBtn.isUserInteractionEnabled = false
                 case 3:
-                    scienceBtn.addBlurEffect()
+                    scienceBtn.addBlurEffect(cornerRadius: 20)
                     scienceBtn.isUserInteractionEnabled = false
                 case 4:
-                    literBtn.addBlurEffect()
+                    literBtn.addBlurEffect(cornerRadius: 20)
                     literBtn.isUserInteractionEnabled = false
                 case 5:
-                    geoBtn.addBlurEffect()
+                    geoBtn.addBlurEffect(cornerRadius: 20)
                     geoBtn.isUserInteractionEnabled = false
                 case 6:
-                    wildBtn.addBlurEffect()
+                    wildBtn.addBlurEffect(cornerRadius: 20)
                     wildBtn.isUserInteractionEnabled = false
                 case 7:
-                    techBtn.addBlurEffect()
+                    techBtn.addBlurEffect(cornerRadius: 20)
                     techBtn.isUserInteractionEnabled = false
                 case 8:
-                    mathsBtn.addBlurEffect()
+                    mathsBtn.addBlurEffect(cornerRadius: 20)
                     mathsBtn.isUserInteractionEnabled = false
                 default:
                     break
