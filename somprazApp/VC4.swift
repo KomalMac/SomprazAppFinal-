@@ -126,137 +126,54 @@ class VC4: UIViewController {
         //        var selectedImageName: String = ""
         var selectedCategory = ""
         
-        if sender.tag == 1 {
-            entrtnBtn.isSelected = true
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "EntertainmentYellow"
-            
-        } else if sender.tag == 2 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = true
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "AstronomyYellow"
-            
-            //
-        } else if sender.tag == 3 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = true
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "HistoryYellow"
-            
-        } else if sender.tag == 4 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = true
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "Science Yellow"
-            
-        } else if sender.tag == 5 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = true
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "Literature Yellow"
-            
-        } else if sender.tag == 6 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = true
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "Geography Yellow"
-            
-        } else if sender.tag == 7 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = true
-            techBtn.isSelected = false
-            mathsBtn.isSelected = false
-            intTag = "Wildlife Yellow"
-            
-        } else if sender.tag == 8 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = true
-            mathsBtn.isSelected = false
-            intTag = "Technology Yellow"
-            
-        } else if sender.tag == 9 {
-            entrtnBtn.isSelected = false
-            astroBtn.isSelected = false
-            historyBtn.isSelected = false
-            scienceBtn.isSelected = false
-            literBtn.isSelected = false
-            geoBtn.isSelected = false
-            wildBtn.isSelected = false
-            techBtn.isSelected = false
-            mathsBtn.isSelected = true
-            intTag = "Mathematics Yellow"
-            
-        }
+        entrtnBtn.isSelected = false
+        astroBtn.isSelected = false
+        historyBtn.isSelected = false
+        scienceBtn.isSelected = false
+        literBtn.isSelected = false
+        geoBtn.isSelected = false
+        wildBtn.isSelected = false
+        techBtn.isSelected = false
+        mathsBtn.isSelected = false
         
         // Determine the selected category based on the button's tag
            switch sender.tag {
            case 1:
                selectedCategory = "Entertainment"
+               entrtnBtn.isSelected = true
+               intTag = "EntertainmentYellow"
            case 2:
                selectedCategory = "Astronomy"
+               astroBtn.isSelected = true
+               intTag = "AstronomyYellow"
            case 3:
                selectedCategory = "History"
+               historyBtn.isSelected = true
+               intTag = "HistoryYellow"
            case 4:
                selectedCategory = "Science"
+               scienceBtn.isSelected = true
+               intTag = "Science Yellow"
            case 5:
                selectedCategory = "Literature"
+               literBtn.isSelected = true
+               intTag = "Literature Yellow"
            case 6:
                selectedCategory = "Geography"
+               geoBtn.isSelected = true
+               intTag = "Geography Yellow"
            case 7:
                selectedCategory = "Wildlife"
+               wildBtn.isSelected = true
+               intTag = "Wildlife Yellow"
            case 8:
                selectedCategory = "Technology"
+               techBtn.isSelected = true
+               intTag = "Technology Yellow"
            case 9:
                selectedCategory = "Mathematics"
+               mathsBtn.isSelected = true
+               intTag = "Mathematics Yellow"
            
            default:
                break
