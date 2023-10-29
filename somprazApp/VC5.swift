@@ -27,6 +27,10 @@ class VC5: UIViewController {
     @IBOutlet weak var btn3: UIButton!
     @IBOutlet weak var btn4: UIButton!
     
+    @IBOutlet weak var AlertImageView: UIImageView!
+    @IBOutlet weak var drNameScorelbl: UILabel!
+    @IBOutlet weak var MainAlertView: UIView!
+    
     var question: String = ""
     var arrAllQuestions = [QuizModelElement]()
     var arrSelectedCategoryQuestion = [QuizModelElement]()
@@ -39,8 +43,6 @@ class VC5: UIViewController {
     
     var selectedDoctorName = ""
     var selectedDoctorID = ""
-    
-    var customTimeoutAlert : CustomTimeoutAlertViewController?
     
     // timer
     var time = 0
@@ -56,7 +58,7 @@ class VC5: UIViewController {
         self.title = "" // Set an empty title
         // or
         self.navigationItem.title = nil
-        
+        MainAlertView.isHidden = true
         quiz()
         
         btn1.layer.borderWidth = 4
@@ -74,19 +76,17 @@ class VC5: UIViewController {
         btn3.layer.cornerRadius = 16
         btn4.layer.cornerRadius = 16
         
-        
         setUpUI()
-        
-        if let customTimeout = self.storyboard?.instantiateViewController(withIdentifier: "CustomTimeoutAlertViewController") as? CustomTimeoutAlertViewController {
-            customTimeoutAlert = customTimeout
-        }
-        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        timer?.invalidate()
-        timer = nil
+        DispatchQueue.main.async {
+            self.MainAlertView.isHidden = true
+            self.timer?.invalidate()
+            self.timer = nil
+        }
+        
     }
     
     func setUpUI() {
@@ -131,6 +131,7 @@ class VC5: UIViewController {
                     self?.arrAllQuestions = [QuizModelElement]()
                     self?.arrAllQuestions = questions
                     self?.updateSelectedCategoryQuestionList()
+                    self?.startTimer()
                 }
             case .failure(let error):
                 print(error)
@@ -159,14 +160,7 @@ class VC5: UIViewController {
     }
     
     func displayNoQuestionAlert() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Oops", message: "No questions available for \(self.selectedCategory)", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
-//                self.navigationController?.popViewController(animated: true)
-            }
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
-        }
+        self.showAlertwithImage(id: "completed")
     }
     
     
@@ -187,7 +181,6 @@ class VC5: UIViewController {
     func displayQuestion() {
         DispatchQueue.main.async {
             // Start the timer when the ready for display question
-            self.startTimer()
             if let currentQuestion = self.currentQuestion {
                 self.displayedQuestionsID.append(currentQuestion.id)
                 for i in 0..<self.arrSelectedCategoryQuestion.count {
@@ -224,19 +217,24 @@ class VC5: UIViewController {
                 self.timer?.invalidate() // Stop the timer
                 self.timer = nil
                 
+                print(self.timer)
+                
+                let score = self.calculateScore() // Set the score
+                self.showAlertwithImage(id: "timeout")
+                
                 // Submit score
                 self.submitScore()
-                
-                // Create an instance of CustomTimeoutAlertViewController
-                self.customTimeoutAlert?.score = self.calculateScore() // Set the score
-                self.customTimeoutAlert?.name = self.selectedDoctorName
-
-                // Present the CustomTimeoutAlertViewController modally
-                self.customTimeoutAlert?.modalPresentationStyle = .overCurrentContext // Set the presentation style as needed
-                self.customTimeoutAlert?.modalTransitionStyle = .crossDissolve // Set the transition style as needed
-                self.present(self.customTimeoutAlert ?? CustomTimeoutAlertViewController(), animated: true, completion: nil)
-                
             }
+        }
+    }
+    
+    func showAlertwithImage(id: String) {
+        self.drNameScorelbl.text = "\(self.selectedDoctorName), your score is \(score) points"
+        self.MainAlertView.isHidden = false
+        if id == "timeout" {
+            AlertImageView.image = UIImage(named: "Timeout4")
+        } else if  id == "completed" {
+            AlertImageView.image = UIImage(named: "Timeout1")
         }
     }
 
@@ -276,14 +274,15 @@ class VC5: UIViewController {
                                 
                                 // After 5 seconds, dismiss the alert controller and push VC6
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                                    self.customTimeoutAlert?.dismiss(animated: true) {
+                                    self.MainAlertView.isHidden = true
                                         // Create an instance of VC6
                                         let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
                                         vc6.selectedDoctorID = self.selectedDoctorID
                                         vc6.selectedDoctorName = self.selectedDoctorName
+                                    vc6.selectedCategory = self.selectedCategory
                                         // Push VC6 onto the navigation stack
                                         self.navigationController?.pushViewController(vc6, animated: true)
-                                    }
+                                    
                                 }
                 }
             }

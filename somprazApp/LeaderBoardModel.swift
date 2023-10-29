@@ -6,14 +6,16 @@
 //
 
 import Foundation
-struct LeaderboardData: Codable {
+
+// MARK: - LeaderBoardModel
+struct LeaderBoardModel: Codable {
     let msg: String
     let categoryLeaderboard: [DoctorInfo]
 }
 
+// MARK: - CategoryLeaderboard
 struct DoctorInfo: Codable {
-    let doctorName: String
-    let state: String
-    let city: String
+    let doctorName, state: String
+    let city: String?
     let score: Int
 }

@@ -70,31 +70,31 @@ class VC4: UIViewController {
             if doctor {
                 switch i {
                 case 0:
-                    entrtnBtn.addBlurEffect(cornerRadius: 20)
+                    entrtnBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     entrtnBtn.isUserInteractionEnabled = false
                 case 1:
-                    astroBtn.addBlurEffect(cornerRadius: 20)
+                    astroBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     astroBtn.isUserInteractionEnabled = false
                 case 2:
-                    historyBtn.addBlurEffect(cornerRadius: 20)
+                    historyBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     historyBtn.isUserInteractionEnabled = false
                 case 3:
-                    scienceBtn.addBlurEffect(cornerRadius: 20)
+                    scienceBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     scienceBtn.isUserInteractionEnabled = false
                 case 4:
-                    literBtn.addBlurEffect(cornerRadius: 20)
+                    literBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     literBtn.isUserInteractionEnabled = false
                 case 5:
-                    geoBtn.addBlurEffect(cornerRadius: 20)
+                    geoBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     geoBtn.isUserInteractionEnabled = false
                 case 6:
-                    wildBtn.addBlurEffect(cornerRadius: 20)
+                    wildBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     wildBtn.isUserInteractionEnabled = false
                 case 7:
-                    techBtn.addBlurEffect(cornerRadius: 20)
+                    techBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     techBtn.isUserInteractionEnabled = false
                 case 8:
-                    mathsBtn.addBlurEffect(cornerRadius: 20)
+                    mathsBtn.addBlurEffect(style: .light,cornerRadius: 20)
                     mathsBtn.isUserInteractionEnabled = false
                 default:
                     break
@@ -215,6 +215,20 @@ extension UIButton {
         }
     }
 }
+
+
+
+@IBDesignable extension UIView {
+    @IBInspectable var cornerRadiusView: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+}
+
 @IBDesignable extension UIButton {
     
     @IBInspectable var borderWidth: CGFloat {

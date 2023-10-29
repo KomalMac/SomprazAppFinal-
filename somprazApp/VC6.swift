@@ -22,7 +22,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var selectedDoctorName = ""
     var selectedDoctorID = ""
-    var leaderboard: [DoctorInfo] = []
+    var leaderboard = [DoctorInfo]()
     var selectedCategory: String = "selectedCategory"
     
     override func viewDidLoad() {
@@ -37,9 +37,6 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView.delegate = self
         tableView.dataSource = self
-       // add print mesage
-        tableView.backgroundColor = .blue
-        tableView.separatorColor = UIColor.gray // Set your desired color
 
     }
     
@@ -54,10 +51,11 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     do {
-                        let leaderboardData = try JSONDecoder().decode(LeaderboardData.self, from: data)
+                        let leaderboardData = try JSONDecoder().decode(LeaderBoardModel.self, from: data)
                         // Update the UI on the main thread
                         // Update the UI on the main thread
                         DispatchQueue.main.async {
+                            self.leaderboard = [DoctorInfo]()
                             self.leaderboard = leaderboardData.categoryLeaderboard
                             self.lbLabel.text = "Category: " + self.selectedCategory // Update lbLabel
                             self.tableView.reloadData()
@@ -86,18 +84,11 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
             let doctorInfo = leaderboard[indexPath.row]
             cell.lblID.text = "Doctor Name: " + doctorInfo.doctorName
-            cell.lblName.text = "City: " + doctorInfo.city
+            cell.lblName.text = "City: " + (doctorInfo.city ?? "")
             // You can display other information like state and score as needed
 
             return cell
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cellHeight = 100 // Adjust this value to your content size
-        let spaceHeight = 10 // Adjust this value to the desired space
-        return CGFloat(cellHeight + spaceHeight)
-    }
-
 
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
