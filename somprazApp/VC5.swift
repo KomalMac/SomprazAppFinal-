@@ -45,7 +45,7 @@ class VC5: UIViewController {
     
     weak var timer: Timer?
     // Add a property to store the remaining time
-    var remainingTime = 40 // Adjust the initial time as needed
+    var remainingTime = 60 // Adjust the initial time as needed
     var score = 0
     
     
@@ -55,9 +55,6 @@ class VC5: UIViewController {
         // or
         self.navigationItem.title = nil
         
-        
-        // Start the timer when the view loads
-        startTimer()
         quiz()
         
         btn1.layer.borderWidth = 4
@@ -170,20 +167,24 @@ class VC5: UIViewController {
     
     
     func displayQuestion() {
-        if let currentQuestion = currentQuestion {
-            displayedQuestionsID.append(currentQuestion.id)
-            for i in 0..<arrSelectedCategoryQuestion.count {
-                if currentQuestion.id == arrSelectedCategoryQuestion[i].id {
-                    arrSelectedCategoryQuestion.remove(at: i)
-                    break
+        DispatchQueue.main.async {
+            // Start the timer when the ready for display question
+            self.startTimer()
+            if let currentQuestion = self.currentQuestion {
+                self.displayedQuestionsID.append(currentQuestion.id)
+                for i in 0..<self.arrSelectedCategoryQuestion.count {
+                    if currentQuestion.id == self.arrSelectedCategoryQuestion[i].id {
+                        self.arrSelectedCategoryQuestion.remove(at: i)
+                        break
+                    }
                 }
-            }
-            self.quesLbl.text = currentQuestion.question
-            if currentQuestion.answerOptions.count >= 4 {
-                self.btn1.setTitle(currentQuestion.answerOptions[0].answer, for: .normal)
-                self.btn2.setTitle(currentQuestion.answerOptions[1].answer, for: .normal)
-                self.btn3.setTitle(currentQuestion.answerOptions[2].answer, for: .normal)
-                self.btn4.setTitle(currentQuestion.answerOptions[3].answer, for: .normal)
+                self.quesLbl.text = currentQuestion.question
+                if currentQuestion.answerOptions.count >= 4 {
+                    self.btn1.setTitle(currentQuestion.answerOptions[0].answer, for: .normal)
+                    self.btn2.setTitle(currentQuestion.answerOptions[1].answer, for: .normal)
+                    self.btn3.setTitle(currentQuestion.answerOptions[2].answer, for: .normal)
+                    self.btn4.setTitle(currentQuestion.answerOptions[3].answer, for: .normal)
+                }
             }
         }
     }
