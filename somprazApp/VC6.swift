@@ -24,6 +24,8 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var selectedDoctorID = ""
     var leaderboard = [DoctorInfo]()
     var selectedCategory: String = "selectedCategory"
+    let dataArray = ["4.", "5.", "6.", "7.", "8.", "9.", "10."]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +77,11 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         print(leaderboard)
+        
         // Return the number of rows
+        return dataArray.count
         return leaderboard.count
     }
 
@@ -86,9 +91,14 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let doctorInfo = leaderboard[indexPath.row]
             cell.lblID.text = "Doctor Name: " + doctorInfo.doctorName
             cell.lblName.text = "City: " + (doctorInfo.city ?? "")
-            // You can display other information like state and score as needed
+//            // You can display other information like state and score as needed
+        
+        // Configure the cell with data from your array
+           cell.lblName?.text = dataArray[indexPath.row]
+           cell.lblID?.text = selectedDoctorName
+           
 
-            return cell
+        return cell
     }
 
 
