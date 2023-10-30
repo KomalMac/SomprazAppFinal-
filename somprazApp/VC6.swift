@@ -75,6 +75,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(leaderboard)
         // Return the number of rows
         return leaderboard.count
     }

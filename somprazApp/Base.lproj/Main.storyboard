@@ -871,18 +871,18 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAa-AZ-so9">
                                                                     <rect key="frame" x="10" y="1" width="42" height="36"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4h-e3-7xF">
                                                                     <rect key="frame" x="62" y="1" width="42" height="36"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="t4h-e3-7xF" secondAttribute="bottom" constant="1" id="0WB-dr-eJx"/>
                                                                 <constraint firstItem="dAa-AZ-so9" firstAttribute="leading" secondItem="sYk-xn-SVZ" secondAttribute="leading" constant="10" id="0ZW-Is-vCe"/>
@@ -1076,6 +1076,11 @@
             <point key="canvasLocation" x="3979.1015624999995" y="151.5625"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ZEZ-Ya-Y0I">
+            <size key="intrinsicContentSize" width="204.5" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="4 sure logo" width="706" height="570"/>
         <image name="4q1m" width="1317" height="1064"/>

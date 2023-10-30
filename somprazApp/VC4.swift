@@ -65,36 +65,38 @@ class VC4: UIViewController {
     
     func updateBlurbutton(doctorsList: DoctorModel) {
         
+        
+        
         for i in 0..<doctorsList.count {
             let doctor = doctorsList[i].isPlayed
             if doctor {
                 switch i {
                 case 0:
-                    entrtnBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    entrtnBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     entrtnBtn.isUserInteractionEnabled = false
                 case 1:
-                    astroBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    astroBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     astroBtn.isUserInteractionEnabled = false
                 case 2:
-                    historyBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    historyBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     historyBtn.isUserInteractionEnabled = false
                 case 3:
-                    scienceBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    scienceBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     scienceBtn.isUserInteractionEnabled = false
                 case 4:
-                    literBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    literBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     literBtn.isUserInteractionEnabled = false
                 case 5:
-                    geoBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    geoBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     geoBtn.isUserInteractionEnabled = false
                 case 6:
-                    wildBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    wildBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     wildBtn.isUserInteractionEnabled = false
                 case 7:
-                    techBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    techBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     techBtn.isUserInteractionEnabled = false
                 case 8:
-                    mathsBtn.addBlurEffect(style: .light,cornerRadius: 20)
+                    mathsBtn.addBlurEffect(style: .light,cornerRadius: 30)
                     mathsBtn.isUserInteractionEnabled = false
                 default:
                     break
