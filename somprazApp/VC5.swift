@@ -161,6 +161,7 @@ class VC5: UIViewController {
     
     func displayNoQuestionAlert() {
         self.showAlertwithImage(id: "completed")
+        self.submitScore()
     }
     
     
@@ -218,12 +219,9 @@ class VC5: UIViewController {
                 self.timer = nil
                 
                 print(self.timer)
-                
-                let score = self.calculateScore() // Set the score
+                self.submitScore() // Submit score
                 self.showAlertwithImage(id: "timeout")
                 
-                // Submit score
-                self.submitScore()
             }
         }
     }

@@ -23,9 +23,8 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var selectedDoctorName = ""
     var selectedDoctorID = ""
     var leaderboard = [DoctorInfo]()
+    var filteredLeaderboard = [DoctorInfo]()
     var selectedCategory: String = "selectedCategory"
-    let dataArray = ["4.", "5.", "6.", "7.", "8.", "9.", "10."]
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +58,13 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         DispatchQueue.main.async {
                             self.leaderboard = [DoctorInfo]()
                             self.leaderboard = leaderboardData.categoryLeaderboard
+                            self.filteredLeaderboard = [DoctorInfo]()
+                            for i in 0..<self.leaderboard.count {
+                                if i > 2 {
+                                    let led = self.leaderboard[i]
+                                    self.filteredLeaderboard.append(led)
+                                }
+                            }
                             self.lbLabel.text = "Category: " + self.selectedCategory // Update lbLabel
                             self.tableView.reloadData()
                             print("Data loaded and table view reloaded. Count: \(self.leaderboard.count)")
@@ -81,21 +87,20 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(leaderboard)
         
         // Return the number of rows
-        return dataArray.count
-        return leaderboard.count
+        return filteredLeaderboard.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
 
-            let doctorInfo = leaderboard[indexPath.row]
-            cell.lblID.text = "Doctor Name: " + doctorInfo.doctorName
-            cell.lblName.text = "City: " + (doctorInfo.city ?? "")
+            let doctorInfo = filteredLeaderboard[indexPath.row]
+            let index = indexPath.row + 4
+            cell.lblID.text = "Score : " + "\(doctorInfo.score)"
+            cell.lblName.text = "\(index)  "  + "Doctor Name: " + doctorInfo.doctorName
 //            // You can display other information like state and score as needed
         
         // Configure the cell with data from your array
-           cell.lblName?.text = dataArray[indexPath.row]
-           cell.lblID?.text = selectedDoctorName
+           
            
 
         return cell

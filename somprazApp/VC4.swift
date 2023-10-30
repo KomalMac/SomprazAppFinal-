@@ -64,9 +64,6 @@ class VC4: UIViewController {
     }
     
     func updateBlurbutton(doctorsList: DoctorModel) {
-        
-        
-        
         for i in 0..<doctorsList.count {
             let doctor = doctorsList[i].isPlayed
             if doctor {

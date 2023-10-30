@@ -84,8 +84,7 @@ class VC1: UIViewController {
         if let enterDocNameText = enterDocNameTF.text, !enterDocNameText.isEmpty,
            let placeText = placeTF.text, !placeText.isEmpty {
             // Text fields are not empty, proceed to the next screen
-            let VC = storyboard?.instantiateViewController(withIdentifier: "VC4") as! VC4
-            self.navigationController?.pushViewController(VC, animated: true)
+            postDoctorData()
         } else {
             // Display an alert if either or both text fields are empty
             let alert = UIAlertController(title: "Validation Error", message: "Please fill in both text fields.", preferredStyle: .alert)
@@ -93,10 +92,12 @@ class VC1: UIViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
-        
+    }
+    
+    func postDoctorData() {
         guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/user") else {
-                    return
-                }
+            return
+        }
 
                 // Prepare the data to send in the request body
                 let doctorName = enterDocNameTF.text ?? ""
@@ -104,10 +105,8 @@ class VC1: UIViewController {
         
         // Create a dictionary with a single key "data"
             let bodyParameters: [String: Any] = [
-                
                     "doctorName": doctorName,
                     "state": state
-                
             ]
 
                 do {
@@ -124,6 +123,10 @@ class VC1: UIViewController {
                         } else if let data = data {
                             if let jsonString = String(data: data, encoding: .utf8) {
                                 print("Response: \(jsonString)")
+                                DispatchQueue.main.async {
+                                    let VC = self.storyboard?.instantiateViewController(withIdentifier: "VC4") as! VC4
+                                    self.navigationController?.pushViewController(VC, animated: true)
+                                }
                             }
                         }
                     }
@@ -131,7 +134,6 @@ class VC1: UIViewController {
                 } catch {
                     print("Error creating JSON data: \(error)")
                 }
-        
     }
     
     @IBAction func docNameDrpDownTapped(_ sender: DropDown) {
