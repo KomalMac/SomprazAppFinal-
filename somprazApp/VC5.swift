@@ -292,19 +292,6 @@ class VC5: UIViewController {
                     
                     //            post api to save tottals points ,categoryname and userid
                     //            api = https://quizapi-omsn.onrender.com/api/submit/score
-                                
-                                // After 5 seconds, dismiss the alert controller and push VC6
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                                    self.MainAlertView.isHidden = true
-                                        // Create an instance of VC6
-                                        let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
-                                        vc6.selectedDoctorID = self.selectedDoctorID
-                                        vc6.selectedDoctorName = self.selectedDoctorName
-                                    vc6.selectedCategory = self.selectedCategory
-                                        // Push VC6 onto the navigation stack
-                                        self.navigationController?.pushViewController(vc6, animated: true)
-                                    
-                                }
                 }
             }
 

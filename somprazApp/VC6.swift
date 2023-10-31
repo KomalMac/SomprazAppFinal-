@@ -130,9 +130,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let doctorIndex = index - 1 // Adjusted index for accessing filteredLeaderboard
             if doctorIndex < filteredLeaderboard.count {
                 let doctorInfo = filteredLeaderboard[doctorIndex]
-                cell.lblID.text = "\(doctorInfo.score) points"
-                cell.lblName.text = "\(index)    " + doctorInfo.doctorName
-               
+                cell.lblName.text = "\(index)    " + doctorInfo.doctorName + " " + "\(doctorInfo.score) points"
             }
          
            return cell
