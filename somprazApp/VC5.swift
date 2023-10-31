@@ -249,6 +249,7 @@ class VC5: UIViewController {
             vc6.selectedDoctorID = self.selectedDoctorID
             vc6.selectedDoctorName = self.selectedDoctorName
             vc6.selectedCategory = self.selectedCategory
+            vc6.score = self.score
             // Push VC6 onto the navigation stack
             self.navigationController?.pushViewController(vc6, animated: true)
         }
@@ -258,6 +259,8 @@ class VC5: UIViewController {
 
     //            post api to save tottals points ,categoryname and userid
     //            api = https://quizapi-omsn.onrender.com/api/submit/score
+    
+    
     func submitScore() {
         // Define the URL for the API
         let apiUrl = "https://quizapi-omsn.onrender.com/api/submit/score"

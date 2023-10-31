@@ -162,16 +162,16 @@
 				77B5EA452AD3D218005D215F /* SceneDelegate.swift */,
 				77B5EA732AD3F135005D215F /* CustomTextField.swift */,
 				77B5EA492AD3D218005D215F /* Main.storyboard */,
-				77A577102ADFC75300F04135 /* DoctorTVC.swift */,
 				77A5770E2ADFAC5800F04135 /* VC6.swift */,
-				77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */,
 				77AE4AD22AD69F180057E316 /* VC5.swift */,
 				779F431C2AD53645000310EB /* VC4.swift */,
 				779F431A2AD52D80000310EB /* VC3.swift */,
 				779F43182AD52A18000310EB /* VC2.swift */,
 				77B5EA752AD403BD005D215F /* VC1.swift */,
 				77B5EA472AD3D218005D215F /* ViewController.swift */,
+				77A577102ADFC75300F04135 /* DoctorTVC.swift */,
 				7727A2E42AE66A74004C8153 /* AlertViewController.swift */,
+				77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */,
 				77A577122ADFDE9800F04135 /* SelectDoctorModel.swift */,
 				77A5770C2ADEA5CB00F04135 /* DoctorModel.swift */,
 				77BB49622ADC664800CCD73A /* QuizModel.swift */,
@@ -647,6 +647,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3CF007346CC201B80E8F1DA7 /* Pods-somprazApp.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -657,8 +661,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -677,6 +680,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5728CC8306D8C699A833545D /* Pods-somprazApp.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					arm64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -687,8 +694,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
