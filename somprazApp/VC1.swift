@@ -44,6 +44,17 @@ class VC1: UIViewController {
             
             self.view.endEditing(true)
         }
+        
+        // Create a custom back button
+            let backButton = UIButton(type: .custom)
+            backButton.setImage(UIImage(named: "backImage"), for: .normal) // Set your custom back button image
+            backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+            // Add the custom back button to the view
+            view.addSubview(backButton)
+            // Position the custom back button as needed
+            backButton.frame = CGRect(x: 16, y: 40, width: 30, height: 30) // Adjust the frame as needed
+        
+        view.bringSubviewToFront(backButton)
     }
     
     func getDoctorList() {
@@ -75,6 +86,14 @@ class VC1: UIViewController {
                 }
             }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    @objc func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
  
     @IBAction func addBtnTapped(_ sender: UIButton) {

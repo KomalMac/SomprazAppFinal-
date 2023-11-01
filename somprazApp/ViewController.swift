@@ -25,9 +25,20 @@ class ViewController: UIViewController {
         
         employeeTF.delegate = self
         passswordTF.delegate = self
+//        
+//        // Create an image view and set its properties
+//                let imageView = UIImageView(frame: self.view.bounds)
+//                imageView.image = UIImage(named: "Bg") // Set your image name
+//                imageView.contentMode = .scaleAspectFill
+//                imageView.clipsToBounds = true
+//                
+//                // Add the image view to the view controller's view
+//                self.view.addSubview(imageView)
+//                self.view.sendSubviewToBack(imageView)
         
        
     }
+    
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
         // Check if the text fields are empty

@@ -25,6 +25,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var PlayedDocLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var homeBtn: UIButton!
     var selectedDoctorName = ""
     var selectedDoctorID = ""
     var leaderboard = [DoctorInfo]()
@@ -51,6 +52,14 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         print("NewScore: \(score)")
 
+    }
+    
+    
+    @IBAction func homBtnTapped(_ sender: UIButton) {
+        
+        let VC = storyboard?.instantiateViewController(withIdentifier: "VC1") as! VC1
+        self.navigationController?.pushViewController(VC, animated: true)
+        
     }
     
 //    api = https://quizapi-omsn.onrender.com/api/get/leaderboard/${category}
@@ -116,32 +125,30 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return max(0, filteredLeaderboard.count - startIndex)
         
     }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//           let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
-//
-//           let doctorInfo = filteredLeaderboard[indexPath.row]
-//           let index = indexPath.row + 4
-//           cell.lblID.text = "\(doctorInfo.score) points"
-//           cell.lblName.text = "\(index) " + doctorInfo.doctorName
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
-
-            let index = indexPath.row + 4 // Start from the 4th position
-            let doctorIndex = index - 1 // Calculating doctorIndex based on index
-
-            if doctorIndex >= 0 && doctorIndex < filteredLeaderboard.count {
-                let doctorInfo = filteredLeaderboard[doctorIndex]
-                cell.lblName.text = "\(index). \(doctorInfo.doctorName)"
-                cell.lblID.text = "\(doctorInfo.score) points"
-            } else {
-                // Handle the scenario when doctorIndex is out of the valid range
-                cell.lblName.text = "No Data"
-                cell.lblID.text = "No Score"
+     
+        let index = indexPath.row + 4 // Start from the 4th position
+        let doctorIndex = index - 1 // Adjusted index for accessing filteredLeaderboard
+     
+        if doctorIndex >= 0, doctorIndex < filteredLeaderboard.count {
+            let doctorInfo = filteredLeaderboard[doctorIndex]
+     
+            // Check if UI elements exist and are connected
+            guard let lblName = cell.lblName, let lblID = cell.lblID else {
+                return UITableViewCell()
             }
-
-            return cell
-        
-       }
+     
+            lblName.text = "\(index)    \(doctorInfo.doctorName) \(doctorInfo.score) points"
+            lblID.text = "\(doctorInfo.score) points"
+        } else {
+            return UITableViewCell() // Return an empty cell if doctorIndex is out of bounds
+        }
+     
+        return cell
+    }
    }
 
 
