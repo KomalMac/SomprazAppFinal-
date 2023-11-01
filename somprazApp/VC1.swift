@@ -20,7 +20,7 @@ class VC1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         addBtn.layer.cornerRadius = 30
         submitBtn.layer.cornerRadius = 30
         
@@ -212,6 +212,18 @@ extension VC1: UITextFieldDelegate {
             }
             return true
         }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 

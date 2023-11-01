@@ -61,9 +61,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(VC, animated: true)
         
     }
-    
-//    api = https://quizapi-omsn.onrender.com/api/get/leaderboard/${category}
-    
+
     func getdoctorsCategory() {
         let category = selectedCategory
         print("Selected category: \(category)")
@@ -91,9 +89,9 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
      
                             // Update the top 3 labels
                             if self.filteredLeaderboard.count >= 3 {
-                                self.no1Lbl.text = " \(self.filteredLeaderboard[0].doctorName) - \(self.filteredLeaderboard[0].score) points"
-                                self.no2Lbl.text = " \(self.filteredLeaderboard[1].doctorName) - \(self.filteredLeaderboard[1].score) points"
-                                self.no3Lbl.text = " \(self.filteredLeaderboard[2].doctorName) - \(self.filteredLeaderboard[2].score) points"
+                                self.no1Lbl.text = " \(self.filteredLeaderboard[0].doctorName) \n \(self.filteredLeaderboard[0].score) points"
+                                self.no2Lbl.text = " \(self.filteredLeaderboard[1].doctorName) \n \(self.filteredLeaderboard[1].score) points"
+                                self.no3Lbl.text = " \(self.filteredLeaderboard[2].doctorName) \n \(self.filteredLeaderboard[2].score) points"
                             } else {
                                 // Handle the case when there are not enough entries in the leaderboard
                                 self.no1Lbl.text = " -"
@@ -114,39 +112,17 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print(leaderboard)
-        
-//        // Return the number of rows
-//        return filteredLeaderboard.count
-        
-        // Return the number of rows starting from the 4th position
-            let startIndex = 3
-            return max(0, filteredLeaderboard.count - startIndex)
+
+        return filteredLeaderboard.count - 3
         
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
-     
-        let index = indexPath.row + 4 // Start from the 4th position
-        let doctorIndex = index - 1 // Adjusted index for accessing filteredLeaderboard
-     
-        if doctorIndex >= 0, doctorIndex < filteredLeaderboard.count {
-            let doctorInfo = filteredLeaderboard[doctorIndex]
-     
-            // Check if UI elements exist and are connected
-            guard let lblName = cell.lblName, let lblID = cell.lblID else {
-                return UITableViewCell()
-            }
-     
-            lblName.text = "\(index)    \(doctorInfo.doctorName) \(doctorInfo.score) points"
-            lblID.text = "\(doctorInfo.score) points"
-        } else {
-            return UITableViewCell() // Return an empty cell if doctorIndex is out of bounds
-        }
-     
+        let index = indexPath.row + 3
+        let doctorInfo = filteredLeaderboard[index]
+        cell.lblName.text = "\(index)    \(doctorInfo.doctorName) \(doctorInfo.score) points"
         return cell
     }
    }

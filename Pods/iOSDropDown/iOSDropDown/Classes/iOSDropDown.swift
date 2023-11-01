@@ -239,53 +239,57 @@ open class DropDown: UITextField {
         if height < (keyboardHeight + tableheightX) {
             y = pointToParent.y - tableheightX
         }
-        UIView.animate(withDuration: 0.9,
-                       delay: 0,
-                       usingSpringWithDamping: 0.4,
-                       initialSpringVelocity: 0.1,
-                       options: .curveEaseInOut,
-                       animations: { () -> Void in
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.9,
+                           delay: 0,
+                           usingSpringWithDamping: 0.4,
+                           initialSpringVelocity: 0.1,
+                           options: .curveEaseInOut,
+                           animations: { () -> Void in
 
-                           self.table.frame = CGRect(x: self.pointToParent.x,
-                                                     y: y,
-                                                     width: self.frame.width,
-                                                     height: self.tableheightX)
-                           self.table.alpha = 1
-                           self.shadow.frame = self.table.frame
-                           self.shadow.dropShadow()
-                           self.arrow.position = .up
+                               self.table.frame = CGRect(x: self.pointToParent.x,
+                                                         y: y,
+                                                         width: self.frame.width,
+                                                         height: self.tableheightX)
+                               self.table.alpha = 1
+                               self.shadow.frame = self.table.frame
+                               self.shadow.dropShadow()
+                               self.arrow.position = .up
 
-                       },
-                       completion: { (_) -> Void in
-                           self.layoutIfNeeded()
+                           },
+                           completion: { (_) -> Void in
+                               self.layoutIfNeeded()
 
-                       })
+                           })
+        }
     }
 
     public func hideList() {
-        TableWillDisappearCompletion()
-        UIView.animate(withDuration: 1.0,
-                       delay: 0.4,
-                       usingSpringWithDamping: 0.9,
-                       initialSpringVelocity: 0.1,
-                       options: .curveEaseInOut,
-                       animations: { () -> Void in
-                           self.table.frame = CGRect(x: self.pointToParent.x,
-                                                     y: self.pointToParent.y + self.frame.height,
-                                                     width: self.frame.width,
-                                                     height: 0)
-                           self.shadow.alpha = 0
-                           self.shadow.frame = self.table.frame
-                           self.arrow.position = .down
-                       },
-                       completion: { (_) -> Void in
+        DispatchQueue.main.async {
+            self.TableWillDisappearCompletion()
+            UIView.animate(withDuration: 1.0,
+                           delay: 0.4,
+                           usingSpringWithDamping: 0.9,
+                           initialSpringVelocity: 0.1,
+                           options: .curveEaseInOut,
+                           animations: { () -> Void in
+                               self.table.frame = CGRect(x: self.pointToParent.x,
+                                                         y: self.pointToParent.y + self.frame.height,
+                                                         width: self.frame.width,
+                                                         height: 0)
+                               self.shadow.alpha = 0
+                               self.shadow.frame = self.table.frame
+                               self.arrow.position = .down
+                           },
+                           completion: { (_) -> Void in
 
-                           self.shadow.removeFromSuperview()
-                           self.table.removeFromSuperview()
-                           self.backgroundView.removeFromSuperview()
-                           self.isSelected = false
-                           self.TableDidDisappearCompletion()
-                       })
+                               self.shadow.removeFromSuperview()
+                               self.table.removeFromSuperview()
+                               self.backgroundView.removeFromSuperview()
+                               self.isSelected = false
+                               self.TableDidDisappearCompletion()
+                           })
+        }
     }
 
     @objc public func touchAction() {
