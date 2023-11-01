@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         loginBtn.layer.cornerRadius = 30
         
         employeeTF.delegate = self

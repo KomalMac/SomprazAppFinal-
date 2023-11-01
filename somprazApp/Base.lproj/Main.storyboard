@@ -894,7 +894,9 @@
                                                             <rect key="frame" x="0.0" y="14" width="510" height="42"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAa-AZ-so9">
-                                                                    <rect key="frame" x="40" y="1" width="48" height="40"/>
+
+                                   <rect key="frame" x="30" y="1" width="48" height="56"/>
+
                                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -913,7 +915,7 @@
                                                                 <constraint firstItem="dAa-AZ-so9" firstAttribute="top" secondItem="sYk-xn-SVZ" secondAttribute="top" constant="1" id="3VL-Bb-aIc"/>
                                                                 <constraint firstItem="t4h-e3-7xF" firstAttribute="top" secondItem="sYk-xn-SVZ" secondAttribute="top" constant="1" id="7n4-p7-8sL"/>
                                                                 <constraint firstAttribute="trailing" secondItem="t4h-e3-7xF" secondAttribute="trailing" constant="40" id="HeT-5d-DBS"/>
-                                                                <constraint firstItem="dAa-AZ-so9" firstAttribute="leading" secondItem="sYk-xn-SVZ" secondAttribute="leading" constant="40" id="bfV-Kl-zSu"/>
+                                                                <constraint firstItem="dAa-AZ-so9" firstAttribute="leading" secondItem="sYk-xn-SVZ" secondAttribute="leading" constant="30" id="bfV-Kl-zSu"/>
                                                                 <constraint firstAttribute="bottom" secondItem="dAa-AZ-so9" secondAttribute="bottom" constant="1" id="chv-5Z-xhf"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>

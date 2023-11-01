@@ -125,15 +125,22 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //           cell.lblName.text = "\(index) " + doctorInfo.doctorName
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
-         
+
             let index = indexPath.row + 4 // Start from the 4th position
-            let doctorIndex = index - 1 // Adjusted index for accessing filteredLeaderboard
-            if doctorIndex < filteredLeaderboard.count {
+            let doctorIndex = index - 1 // Calculating doctorIndex based on index
+
+            if doctorIndex >= 0 && doctorIndex < filteredLeaderboard.count {
                 let doctorInfo = filteredLeaderboard[doctorIndex]
-                cell.lblName.text = "\(index)    " + doctorInfo.doctorName + " " + "\(doctorInfo.score) points"
+                cell.lblName.text = "\(index). \(doctorInfo.doctorName)"
+                cell.lblID.text = "\(doctorInfo.score) points"
+            } else {
+                // Handle the scenario when doctorIndex is out of the valid range
+                cell.lblName.text = "No Data"
+                cell.lblID.text = "No Score"
             }
-         
-           return cell
+
+            return cell
+        
        }
    }
 
