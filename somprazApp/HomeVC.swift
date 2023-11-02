@@ -165,14 +165,12 @@ class HomeVC: UIViewController {
                 if let error = error {
                     print("Error: \(error)")
                 } else if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        print("Response: \(jsonString)")
+                    if let doctorInsert = try? JSONDecoder().decode(DoctorInsert.self, from: data) {
                         DispatchQueue.main.async {
                             let selectedDoctorName = self.selectDocName.text
                             let VC = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
-//                            VC.doctorName = doctorName
-                            VC.selectedDoctorID = self.selectedDoctorID
-                            VC.selectedDoctorName = selectedDoctorName ?? <#default value#>
+                            VC.selectedDoctorID = doctorInsert.id
+                            VC.selectedDoctorName = self.enterDocNameTF.text ?? ""
                             self.navigationController?.pushViewController(VC, animated: true)
                         }
                     }

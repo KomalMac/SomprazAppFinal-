@@ -21,6 +21,18 @@ struct DoctorModelElement: Codable {
 
 typealias DoctorModel = [DoctorModelElement]
 
+
+// MARK: - DoctorInsert
+struct DoctorInsert: Codable {
+    let message, id: String
+
+    enum CodingKeys: String, CodingKey {
+        case message
+        case id = "Id"
+    }
+}
+
+
 //RESPONSE
 //
 //

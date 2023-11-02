@@ -32,5 +32,176 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F593A38C-88C0-4CED-A743-0A99B8307CD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "somprazApp/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "postDoctorData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F593A38C-88C0-4CED-A743-0A99B8307CD9 - 20abcdca33c528f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "1504">
+               </Location>
+               <Location
+                  uuid = "F593A38C-88C0-4CED-A743-0A99B8307CD9 - 84608ada51995395"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "F593A38C-88C0-4CED-A743-0A99B8307CD9 - 84608ada51995395"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "somprazApp/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "postDoctorData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690 - 20abcdca33c528b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "896">
+               </Location>
+               <Location
+                  uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690 - 20abcdca33c528b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+               <Location
+                  uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690 - 20abcdca33c528b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "864">
+               </Location>
+               <Location
+                  uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690 - 20abcdca33c528b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+               <Location
+                  uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690 - 20abcdca33c528b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "1148">
+               </Location>
+               <Location
+                  uuid = "6BE2EA1F-D004-4064-B9A4-50E05F01B690 - 20abcdca33c528b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
+                  moduleName = "somprazApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/viraj/Workspace/Komal/Sompraz/%20SomprazApp/somprazApp/HomeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "1544">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
