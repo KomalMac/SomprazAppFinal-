@@ -238,6 +238,7 @@ class QuesAnsVC: UIViewController {
         // Use a Dispatch Queue to navigate to VC6 after 4 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.MainAlertView.isHidden = true
+            
             // Create an instance of VC6
             let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "LeaderBoardVC") as! LeaderBoardVC
             vc6.selectedDoctorID = self.selectedDoctorID
