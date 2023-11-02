@@ -8,7 +8,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var orLbl: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
-    @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var selectDocName: DropDown!
     @IBOutlet weak var somprazLbl: UILabel!
     
@@ -136,6 +135,7 @@ class HomeVC: UIViewController {
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
+    
     }
     
     func postDoctorData() {
@@ -168,7 +168,11 @@ class HomeVC: UIViewController {
                     if let jsonString = String(data: data, encoding: .utf8) {
                         print("Response: \(jsonString)")
                         DispatchQueue.main.async {
+                            let selectedDoctorName = self.selectDocName.text
                             let VC = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
+//                            VC.doctorName = doctorName
+                            VC.selectedDoctorID = self.selectedDoctorID
+                            VC.selectedDoctorName = selectedDoctorName ?? <#default value#>
                             self.navigationController?.pushViewController(VC, animated: true)
                         }
                     }

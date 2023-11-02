@@ -19,10 +19,15 @@ class CategoryVC: UIViewController {
     
     var selectedDoctorID = ""
     var selectedDoctorName = ""
+    var doctorName: String = "" // Property to hold the doctorName
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // You can use `doctorName` here in CategoryVC after it's set from HomeVC
+                print("Doctor's Name: \(doctorName)")
+        
         
         // Create a custom back button
         let backButton = UIButton(type: .custom)
