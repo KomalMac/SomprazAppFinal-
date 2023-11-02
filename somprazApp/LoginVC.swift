@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginVC: UIViewController {
     
     @IBOutlet weak var userLoginLbl: UILabel!
     @IBOutlet weak var mainImgView: UIImageView!
@@ -17,26 +17,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var forgotLbl: UILabel!
     @IBOutlet weak var somprazLbl: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         loginBtn.layer.cornerRadius = 30
         
         employeeTF.delegate = self
         passswordTF.delegate = self
-//        
-//        // Create an image view and set its properties
-//                let imageView = UIImageView(frame: self.view.bounds)
-//                imageView.image = UIImage(named: "Bg") // Set your image name
-//                imageView.contentMode = .scaleAspectFill
-//                imageView.clipsToBounds = true
-//                
-//                // Add the image view to the view controller's view
-//                self.view.addSubview(imageView)
-//                self.view.sendSubviewToBack(imageView)
         
-       
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     
@@ -48,7 +42,7 @@ class ViewController: UIViewController {
             if employeeText == "a" && passwordText == "a" {
                 
                 // Text fields match the expected values, proceed to the next screen
-                let VC = storyboard?.instantiateViewController(withIdentifier: "VC1") as! VC1
+                let VC = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                 self.navigationController?.pushViewController(VC, animated: true)
             } else {
                 // Display an alert if the provided credentials don't match
@@ -69,7 +63,7 @@ class ViewController: UIViewController {
     
     
 }
-extension ViewController: UITextFieldDelegate {
+extension LoginVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == employeeTF {
             passswordTF.becomeFirstResponder() // Move focus to the password field

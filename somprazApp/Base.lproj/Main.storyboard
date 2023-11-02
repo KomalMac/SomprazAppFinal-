@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LoginVC" storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aah-fY-5On"/>
                         <viewControllerLayoutGuide type="bottom" id="e17-EZ-zUH"/>
@@ -134,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="4703.3203125" y="151.5625"/>
         </scene>
-        <!--VC1-->
+        <!--HomeVC-->
         <scene sceneID="WhT-5w-sTf">
             <objects>
-                <viewController restorationIdentifier="VC1" storyboardIdentifier="VC1" title="VC1" id="nrm-La-JLQ" customClass="VC1" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="HomeVC" storyboardIdentifier="HomeVC" title="HomeVC" id="nrm-La-JLQ" customClass="HomeVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Usq-4J-R1f"/>
                         <viewControllerLayoutGuide type="bottom" id="6RN-ug-n6n"/>
@@ -282,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="5573.4375" y="139.84375"/>
         </scene>
-        <!--VC2-->
+        <!--SomprazVC-->
         <scene sceneID="iYR-k4-pz8">
             <objects>
-                <viewController restorationIdentifier="VC2" storyboardIdentifier="VC2" title="VC2" id="SWg-aI-vpa" customClass="VC2" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SomprazVC" storyboardIdentifier="SomprazVC" title="SomprazVC" id="SWg-aI-vpa" customClass="SomprazVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wCX-xC-oCy"/>
                         <viewControllerLayoutGuide type="bottom" id="wNH-3U-CKX"/>
@@ -349,10 +349,10 @@
             </objects>
             <point key="canvasLocation" x="6298.2421875" y="151.5625"/>
         </scene>
-        <!--VC3-->
+        <!--QuesVC-->
         <scene sceneID="KoG-wu-xV3">
             <objects>
-                <viewController restorationIdentifier="VC3" storyboardIdentifier="VC3" title="VC3" id="Hsf-rQ-ccl" customClass="VC3" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="4QuesVC" storyboardIdentifier="4QuesVC" title="QuesVC" id="Hsf-rQ-ccl" customClass="4QuesVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BQp-ev-zT4"/>
                         <viewControllerLayoutGuide type="bottom" id="5mZ-hu-VSy"/>
@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="7160.7421874999991" y="139.84375"/>
         </scene>
-        <!--VC4-->
+        <!--CategoryVC-->
         <scene sceneID="hrN-es-zcr">
             <objects>
-                <viewController restorationIdentifier="VC4" storyboardIdentifier="VC4" title="VC4" id="Hrq-cL-1MM" customClass="VC4" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="CategoryVC" storyboardIdentifier="CategoryVC" title="CategoryVC" id="Hrq-cL-1MM" customClass="CategoryVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1dZ-2g-LHs"/>
                         <viewControllerLayoutGuide type="bottom" id="iTX-N0-vNt"/>
@@ -595,10 +595,10 @@
             </objects>
             <point key="canvasLocation" x="7972.8515624999991" y="139.84375"/>
         </scene>
-        <!--VC5-->
+        <!--QuesAnsVC-->
         <scene sceneID="RTL-62-Egv">
             <objects>
-                <viewController restorationIdentifier="VC5" storyboardIdentifier="VC5" title="VC5" id="p8l-gi-mxB" customClass="VC5" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="QuesAnsVC" storyboardIdentifier="QuesAnsVC" title="QuesAnsVC" id="p8l-gi-mxB" customClass="QuesAnsVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8DK-BA-eEf"/>
                         <viewControllerLayoutGuide type="bottom" id="AeY-gg-qj8"/>
@@ -720,7 +720,7 @@
                                         <rect key="frame" x="0.0" y="461" width="1024" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <color key="textColor" red="0.15106150811997279" green="0.3619920804457592" blue="0.68516430412371132" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -814,7 +814,7 @@
                                             <constraint firstAttribute="height" constant="80" id="Kmj-Hw-6G4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -867,10 +867,10 @@
             </objects>
             <point key="canvasLocation" x="3979.1015624999995" y="151.5625"/>
         </scene>
-        <!--VC6-->
+        <!--LeaderBoardVC-->
         <scene sceneID="lXB-7J-Ppd">
             <objects>
-                <viewController restorationIdentifier="VC6" storyboardIdentifier="VC6" title="VC6" id="Kqh-sP-RbA" customClass="VC6" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="LeaderBoardVC" storyboardIdentifier="LeaderBoardVC" title="LeaderBoardVC" id="Kqh-sP-RbA" customClass="LeaderBoardVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Adw-Ja-tOg"/>
                         <viewControllerLayoutGuide type="bottom" id="cRS-UL-HQS"/>
@@ -889,9 +889,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="650" height="520"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ct7-YE-5Xw">
-                                        <rect key="frame" x="255" y="20" width="140" height="170"/>
+                                        <rect key="frame" x="255" y="14" width="140" height="170"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown3" translatesAutoresizingMaskIntoConstraints="NO" id="ahG-ku-peb">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CrownNew1" translatesAutoresizingMaskIntoConstraints="NO" id="ahG-ku-peb">
                                                 <rect key="frame" x="27.5" y="0.0" width="85" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="85" id="Hwz-ly-xQt"/>
@@ -928,9 +928,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSh-dU-RnX">
-                                        <rect key="frame" x="95" y="60" width="140" height="170"/>
+                                        <rect key="frame" x="95" y="50" width="140" height="170"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown2" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-NM-Qau">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CrownNew2" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-NM-Qau">
                                                 <rect key="frame" x="27.5" y="0.0" width="85" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="5xX-5m-vS6"/>
@@ -967,9 +967,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-7v-9Hh">
-                                        <rect key="frame" x="415" y="60" width="140" height="170"/>
+                                        <rect key="frame" x="415" y="50" width="140" height="170"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown1" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-P8-ev4">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CrownNew3" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-P8-ev4">
                                                 <rect key="frame" x="27.5" y="0.0" width="85" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="7U3-yL-NFk"/>
@@ -1006,10 +1006,10 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ez-nw-chZ">
-                                        <rect key="frame" x="80" y="240" width="490" height="30"/>
+                                        <rect key="frame" x="125" y="234" width="400" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGray3Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="490" id="Qj6-TL-GTQ"/>
+                                            <constraint firstAttribute="width" constant="400" id="Qj6-TL-GTQ"/>
                                             <constraint firstAttribute="height" constant="30" id="aoZ-Qn-gLD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -1022,7 +1022,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m8d-07-UeB">
-                                        <rect key="frame" x="70" y="290" width="510" height="178"/>
+                                        <rect key="frame" x="70" y="284" width="510" height="184"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -1030,18 +1030,24 @@
                                         </constraints>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DoctorTVC" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DoctorTVC" rowHeight="60" id="Q8X-fh-k3Y" customClass="DoctorTVC" customModule="somprazApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="510" height="60"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DoctorTVC" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DoctorTVC" rowHeight="50" id="Q8X-fh-k3Y" customClass="DoctorTVC" customModule="somprazApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="510" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q8X-fh-k3Y" id="3Lw-V6-rTq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="510" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="510" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGi-Xq-IEy">
-                                                            <rect key="frame" x="0.0" y="12" width="510" height="36"/>
+                                                            <rect key="frame" x="0.0" y="10" width="510" height="30"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnY-xC-HEU">
-                                                                    <rect key="frame" x="30" y="5" width="48" height="26"/>
+                                                                    <rect key="frame" x="30" y="5" width="48" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxY-jc-NnG">
+                                                                    <rect key="frame" x="432" y="5" width="48" height="20"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -1050,8 +1056,11 @@
                                                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AnY-xC-HEU" secondAttribute="trailing" symbolic="YES" id="BZu-2p-ru4"/>
+                                                                <constraint firstAttribute="bottom" secondItem="dxY-jc-NnG" secondAttribute="bottom" constant="5" id="0K5-ft-5Ws"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AnY-xC-HEU" secondAttribute="trailing" constant="20" symbolic="YES" id="BZu-2p-ru4"/>
+                                                                <constraint firstItem="dxY-jc-NnG" firstAttribute="top" secondItem="oGi-Xq-IEy" secondAttribute="top" constant="5" id="LHW-ku-1OG"/>
                                                                 <constraint firstItem="AnY-xC-HEU" firstAttribute="top" secondItem="oGi-Xq-IEy" secondAttribute="top" constant="5" id="Ppm-Ah-whu"/>
+                                                                <constraint firstAttribute="trailing" secondItem="dxY-jc-NnG" secondAttribute="trailing" constant="30" id="edm-sv-2BH"/>
                                                                 <constraint firstItem="AnY-xC-HEU" firstAttribute="leading" secondItem="oGi-Xq-IEy" secondAttribute="leading" constant="30" id="nj2-Wt-QPT"/>
                                                                 <constraint firstAttribute="bottom" secondItem="AnY-xC-HEU" secondAttribute="bottom" constant="5" id="r7z-Qu-fMa"/>
                                                             </constraints>
@@ -1068,8 +1077,8 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="oGi-Xq-IEy" secondAttribute="bottom" constant="12" id="2o7-LX-v65"/>
-                                                        <constraint firstItem="oGi-Xq-IEy" firstAttribute="top" secondItem="3Lw-V6-rTq" secondAttribute="top" constant="12" id="awP-Ko-qdC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="oGi-Xq-IEy" secondAttribute="bottom" constant="10" id="2o7-LX-v65"/>
+                                                        <constraint firstItem="oGi-Xq-IEy" firstAttribute="top" secondItem="3Lw-V6-rTq" secondAttribute="top" constant="10" id="awP-Ko-qdC"/>
                                                         <constraint firstItem="oGi-Xq-IEy" firstAttribute="leading" secondItem="3Lw-V6-rTq" secondAttribute="leading" id="db6-SY-OlK"/>
                                                         <constraint firstAttribute="trailing" secondItem="oGi-Xq-IEy" secondAttribute="trailing" id="eMJ-F3-hnm"/>
                                                     </constraints>
@@ -1080,6 +1089,7 @@
                                                     <outlet property="cellView" destination="oGi-Xq-IEy" id="S1f-ar-IYV"/>
                                                     <outlet property="contentView" destination="3Lw-V6-rTq" id="rYD-gj-9TX"/>
                                                     <outlet property="lblName" destination="AnY-xC-HEU" id="w6T-Vn-Jzm"/>
+                                                    <outlet property="scoreLbl" destination="dxY-jc-NnG" id="nyp-1i-Pah"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1115,9 +1125,9 @@
                                     <constraint firstItem="m8d-07-UeB" firstAttribute="top" secondItem="7ez-nw-chZ" secondAttribute="bottom" constant="20" id="UTf-K5-aFx"/>
                                     <constraint firstItem="7ez-nw-chZ" firstAttribute="top" secondItem="Ct7-YE-5Xw" secondAttribute="bottom" constant="50" id="XXO-gd-JKI"/>
                                     <constraint firstItem="Ct7-YE-5Xw" firstAttribute="leading" secondItem="wSh-dU-RnX" secondAttribute="trailing" constant="20" id="YfN-2k-vWA"/>
-                                    <constraint firstItem="Ct7-YE-5Xw" firstAttribute="top" secondItem="CWb-Tr-uSS" secondAttribute="top" constant="20" id="bd7-Sg-njY"/>
+                                    <constraint firstItem="Ct7-YE-5Xw" firstAttribute="top" secondItem="CWb-Tr-uSS" secondAttribute="top" constant="14" id="bd7-Sg-njY"/>
                                     <constraint firstAttribute="height" constant="520" id="fKd-xM-WmE"/>
-                                    <constraint firstItem="wSh-dU-RnX" firstAttribute="top" secondItem="CWb-Tr-uSS" secondAttribute="top" constant="60" id="fPC-dn-cLe"/>
+                                    <constraint firstItem="wSh-dU-RnX" firstAttribute="top" secondItem="CWb-Tr-uSS" secondAttribute="top" constant="50" id="fPC-dn-cLe"/>
                                     <constraint firstItem="qQS-3Z-x80" firstAttribute="leading" secondItem="CWb-Tr-uSS" secondAttribute="leading" id="ibM-c9-ilZ"/>
                                     <constraint firstItem="7ez-nw-chZ" firstAttribute="centerX" secondItem="CWb-Tr-uSS" secondAttribute="centerX" id="juS-WE-0AA"/>
                                     <constraint firstAttribute="bottom" secondItem="qQS-3Z-x80" secondAttribute="bottom" id="kTc-Q8-8Kt"/>
@@ -1183,6 +1193,9 @@
         <image name="Bg" width="1024" height="768"/>
         <image name="Bg3" width="1024" height="768"/>
         <image name="Bg4" width="1024" height="768"/>
+        <image name="CrownNew1" width="303" height="163"/>
+        <image name="CrownNew2" width="302" height="163"/>
+        <image name="CrownNew3" width="302" height="163"/>
         <image name="EntertainmentWhite" width="1124" height="244"/>
         <image name="Geography White" width="1058" height="214"/>
         <image name="HistoryWhite" width="1109" height="263"/>
@@ -1193,9 +1206,6 @@
         <image name="Timeout4" width="2843" height="802"/>
         <image name="Wildlife White" width="1088" height="246"/>
         <image name="board (1)" width="1567" height="1575"/>
-        <image name="crown1" width="215" height="116"/>
-        <image name="crown2" width="215" height="116"/>
-        <image name="crown3" width="215" height="116"/>
         <image name="d1" width="229" height="230"/>
         <image name="d2" width="230" height="230"/>
         <image name="d3" width="230" height="230"/>

@@ -1,23 +1,17 @@
 import UIKit
 
-class VC4: UIViewController {
+class CategoryVC: UIViewController {
     
     @IBOutlet weak var mainImgView: UIImageView!
     @IBOutlet weak var quesInMinImgView: UIImageView!
-    
-    
     @IBOutlet weak var stackView1: UIStackView!
     @IBOutlet weak var astroBtn: UIButton!
     @IBOutlet weak var entrtnBtn: UIButton!
     @IBOutlet weak var historyBtn: UIButton!
-    
-    
     @IBOutlet weak var stackView2: UIStackView!
     @IBOutlet weak var scienceBtn: UIButton!
     @IBOutlet weak var literBtn: UIButton!
     @IBOutlet weak var geoBtn: UIButton!
-    
-    
     @IBOutlet weak var stackView3: UIStackView!
     @IBOutlet weak var wildBtn: UIButton!
     @IBOutlet weak var techBtn: UIButton!
@@ -31,13 +25,13 @@ class VC4: UIViewController {
         super.viewDidLoad()
         
         // Create a custom back button
-            let backButton = UIButton(type: .custom)
-            backButton.setImage(UIImage(named: "backImage"), for: .normal) // Set your custom back button image
-            backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-            // Add the custom back button to the view
-            view.addSubview(backButton)
-            // Position the custom back button as needed
-            backButton.frame = CGRect(x: 16, y: 40, width: 30, height: 30) // Adjust the frame as needed
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "backImage1"), for: .normal) // Set your custom back button image
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        // Add the custom back button to the view
+        view.addSubview(backButton)
+        // Position the custom back button as needed
+        backButton.frame = CGRect(x: 16, y: 40, width: 30, height: 30) // Adjust the frame as needed
         
         view.bringSubviewToFront(backButton)
         
@@ -57,10 +51,9 @@ class VC4: UIViewController {
     
     func getPlayedCategory() {
         
-//    https://quizapi-omsn.onrender.com/api/get/user-category/652e6c3ee7ebfa7c955fed2e
-      
-//        call api
-//        after that call setupui and add blur logic to setupui
+        //  https://quizapi-omsn.onrender.com/api/get/user-category/652e6c3ee7ebfa7c955fed2e
+        //        call api
+        //        after that call setupui and add blur logic to setupui
         
         
         guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/get/user-category/\(selectedDoctorID)") else {
@@ -74,13 +67,13 @@ class VC4: UIViewController {
                 print(result)
                 DispatchQueue.main.async {
                     self?.updateBlurbutton(doctorsList: doctors)
-                   //Do something here
-                print(doctors)
+                    //Do something here
+                    print(doctors)
                 }
             case .failure(let error):
                 print(error)
             }
-//             Dismiss the loading indicator when the network request is complete
+            //             Dismiss the loading indicator when the network request is complete
         }
     }
     
@@ -157,51 +150,52 @@ class VC4: UIViewController {
         mathsBtn.isSelected = false
         
         // Determine the selected category based on the button's tag
-           switch sender.tag {
-           case 1:
-               selectedCategory = "Entertainment"
-               entrtnBtn.isSelected = true
-               intTag = "EntertainmentYellow"
-           case 2:
-               selectedCategory = "Astronomy"
-               astroBtn.isSelected = true
-               intTag = "AstronomyYellow"
-           case 3:
-               selectedCategory = "History"
-               historyBtn.isSelected = true
-               intTag = "HistoryYellow"
-           case 4:
-               selectedCategory = "Science"
-               scienceBtn.isSelected = true
-               intTag = "Science Yellow"
-           case 5:
-               selectedCategory = "Literature"
-               literBtn.isSelected = true
-               intTag = "Literature Yellow"
-           case 6:
-               selectedCategory = "Geography"
-               geoBtn.isSelected = true
-               intTag = "Geography Yellow"
-           case 7:
-               selectedCategory = "Wildlife"
-               wildBtn.isSelected = true
-               intTag = "Wildlife Yellow"
-           case 8:
-               selectedCategory = "Technology"
-               techBtn.isSelected = true
-               intTag = "Technology Yellow"
-           case 9:
-               selectedCategory = "Mathematics"
-               mathsBtn.isSelected = true
-               intTag = "Mathematics Yellow"
-           
-           default:
-               break
-           }
+        switch sender.tag {
+        case 1:
+            selectedCategory = "Entertainment"
+            entrtnBtn.isSelected = true
+            intTag = "EntertainmentYellow"
+        case 2:
+            selectedCategory = "Astronomy"
+            astroBtn.isSelected = true
+            intTag = "AstronomyYellow"
+        case 3:
+            selectedCategory = "History"
+            historyBtn.isSelected = true
+            intTag = "HistoryYellow"
+        case 4:
+            selectedCategory = "Science"
+            scienceBtn.isSelected = true
+            intTag = "Science Yellow"
+        case 5:
+            selectedCategory = "Literature"
+            literBtn.isSelected = true
+            intTag = "Literature Yellow"
+        case 6:
+            selectedCategory = "Geography"
+            geoBtn.isSelected = true
+            intTag = "Geography Yellow"
+        case 7:
+            selectedCategory = "Wildlife"
+            wildBtn.isSelected = true
+            intTag = "Wildlife Yellow"
+        case 8:
+            selectedCategory = "Technology"
+            techBtn.isSelected = true
+            intTag = "Technology Yellow"
+        case 9:
+            selectedCategory = "Mathematics"
+            mathsBtn.isSelected = true
+            intTag = "Mathematics Yellow"
+            
+        default:
+            break
+        }
         
         print("Selected image identifier: \(intTag)")
         
-        let VC = storyboard?.instantiateViewController(withIdentifier: "VC5") as! VC5
+        let VC = storyboard?.instantiateViewController(withIdentifier: "QuesAnsVC") as! QuesAnsVC
+        
         VC.Id = intTag
         VC.selectedCategory = selectedCategory
         VC.selectedDoctorID = selectedDoctorID
@@ -222,13 +216,13 @@ extension UIButton {
             blurView.layer.masksToBounds = true
         }
         self.insertSubview(blurView, at: 0)
-
+        
         blurView.translatesAutoresizingMaskIntoConstraints = false
         self.leadingAnchor.constraint(equalTo: blurView.leadingAnchor, constant: padding).isActive = true
         self.trailingAnchor.constraint(equalTo: blurView.trailingAnchor, constant: -padding).isActive = true
         self.topAnchor.constraint(equalTo: blurView.topAnchor, constant: padding).isActive = true
         self.bottomAnchor.constraint(equalTo: blurView.bottomAnchor, constant: -padding).isActive = true
-
+        
         if let imageView = self.imageView {
             imageView.backgroundColor = .clear
             self.bringSubviewToFront(imageView)

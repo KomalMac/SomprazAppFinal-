@@ -13,7 +13,7 @@ class DoctorTVC: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblID: UILabel!
-    
+    @IBOutlet weak var scoreLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,25 +8,20 @@
 import UIKit
 import Foundation
 
-class VC5: UIViewController {
+class QuesAnsVC: UIViewController {
     
     @IBOutlet weak var mainImgView: UIImageView!
     @IBOutlet weak var ques4IV: UIImageView!
     @IBOutlet weak var topicIV: UIImageView!
     @IBOutlet weak var quesLbl: UILabel!
-    
     @IBOutlet weak var timerLbl: UILabel!
-    
     @IBOutlet weak var stackView1: UIStackView!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
-    
     @IBOutlet weak var scoreLbl: UILabel!
-    
     @IBOutlet weak var stackView2: UIStackView!
     @IBOutlet weak var btn3: UIButton!
     @IBOutlet weak var btn4: UIButton!
-    
     @IBOutlet weak var AlertImageView: UIImageView!
     @IBOutlet weak var drNameScorelbl: UILabel!
     @IBOutlet weak var MainAlertView: UIView!
@@ -40,7 +35,6 @@ class VC5: UIViewController {
     var selectedCategory: String = ""
     var displayedQuestionsID = [String]()
     var Id: String = ""
-    
     var selectedDoctorName = ""
     var selectedDoctorID = ""
     
@@ -49,7 +43,7 @@ class VC5: UIViewController {
     
     weak var timer: Timer?
     // Add a property to store the remaining time
-    var remainingTime = 20 // Adjust the initial time as needed
+    var remainingTime = 60 // Adjust the initial time as needed
     var score = 0
     
     
@@ -137,7 +131,7 @@ class VC5: UIViewController {
                 print(error)
                 print("playAgain")
             }
-//             Dismiss the loading indicator when the network request is complete
+            //             Dismiss the loading indicator when the network request is complete
             self?.stopLoader(loader: loader)
         }
     }
@@ -229,7 +223,7 @@ class VC5: UIViewController {
     func showAlertwithImage(id: String) {
         self.drNameScorelbl.text = "\(self.selectedDoctorName), your score is \(score) points"
         self.MainAlertView.isHidden = false
-
+        
         // Set the image based on the provided 'id'
         if id == "timeout" {
             AlertImageView.image = UIImage(named: "Timeout4")
@@ -240,12 +234,12 @@ class VC5: UIViewController {
             self.timer?.invalidate()
             self.timer = nil
         }
-
+        
         // Use a Dispatch Queue to navigate to VC6 after 4 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.MainAlertView.isHidden = true
             // Create an instance of VC6
-            let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "VC6") as! VC6
+            let vc6 = self.storyboard?.instantiateViewController(withIdentifier: "LeaderBoardVC") as! LeaderBoardVC
             vc6.selectedDoctorID = self.selectedDoctorID
             vc6.selectedDoctorName = self.selectedDoctorName
             vc6.selectedCategory = self.selectedCategory
@@ -254,9 +248,9 @@ class VC5: UIViewController {
             self.navigationController?.pushViewController(vc6, animated: true)
         }
     }
-
-
-
+    
+    
+    
     //            post api to save tottals points ,categoryname and userid
     //            api = https://quizapi-omsn.onrender.com/api/submit/score
     
@@ -264,23 +258,23 @@ class VC5: UIViewController {
     func submitScore() {
         // Define the URL for the API
         let apiUrl = "https://quizapi-omsn.onrender.com/api/submit/score"
-
+        
         // Define the JSON data to be sent in the request
         let json: [String: Any] = [
             "totalPoints": score,
             "categoryName": selectedCategory,
             "userId": selectedDoctorID
         ]
-
+        
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: json)
-
+            
             // Create the URLRequest
             var request = URLRequest(url: URL(string: apiUrl)!)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
-
+            
             // Create a URLSession task for the request
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
@@ -294,7 +288,7 @@ class VC5: UIViewController {
                     //            api = https://quizapi-omsn.onrender.com/api/submit/score
                 }
             }
-
+            
             // Execute the task
             task.resume()
         } catch {
@@ -373,22 +367,22 @@ class VC5: UIViewController {
     }
     
     @IBAction func onBtnTapped(_ sender: UIButton) {
-//        checkAnswer(button: sender, answerIndex: sender.tag)
+        //        checkAnswer(button: sender, answerIndex: sender.tag)
         if let currentQuestion = currentQuestion {
-                if currentQuestion.answerOptions[sender.tag].isCorrect {
-                    // Correct answer selected
-                    // Increase the score by 10
-                    score += 10
-                }
-            // Update the score label with the current score
-                    scoreLbl.text = "Score: \(score)"
-                checkAnswer(button: sender, answerIndex: sender.tag)
+            if currentQuestion.answerOptions[sender.tag].isCorrect {
+                // Correct answer selected
+                // Increase the score by 10
+                score += 10
             }
+            // Update the score label with the current score
+            scoreLbl.text = "Score: \(score)"
+            checkAnswer(button: sender, answerIndex: sender.tag)
+        }
     }
     
 }
 
-extension VC5 {
+extension QuesAnsVC {
     
     func loader() -> UIAlertController {
         

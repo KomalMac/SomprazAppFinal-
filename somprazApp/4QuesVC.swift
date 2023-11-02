@@ -1,5 +1,5 @@
 //
-//  VC2.swift
+//  VC3.swift
 //  somprazApp
 //
 //  Created by digiLATERAL on 10/10/23.
@@ -7,18 +7,16 @@
 
 import UIKit
 
-class VC2: UIViewController {
+class QuesVC: UIViewController {
     
     
     @IBOutlet weak var mainImgView: UIImageView!
-    @IBOutlet weak var somprazLbl: UILabel!
-    @IBOutlet weak var sureLogoImgView: UIImageView!
-    
-
+    @IBOutlet weak var ques1minImgView: UIImageView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+       
     }
     
 

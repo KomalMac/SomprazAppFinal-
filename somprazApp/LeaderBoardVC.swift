@@ -7,25 +7,20 @@
 
 import UIKit
 
-class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LeaderBoardVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet var mainView: UIView!
-    
     @IBOutlet weak var lbImgView: UIImageView!
-    
     @IBOutlet weak var subView: UIView!
-    
     @IBOutlet weak var boardIV: UIImageView!
-    
     @IBOutlet weak var lbLabel: UILabel!
-    
     @IBOutlet weak var no3Lbl: UILabel!
     @IBOutlet weak var no2Lbl: UILabel!
     @IBOutlet weak var no1Lbl: UILabel!
-    
     @IBOutlet weak var PlayedDocLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var homeBtn: UIButton!
+    
     var selectedDoctorName = ""
     var selectedDoctorID = ""
     var leaderboard = [DoctorInfo]()
@@ -39,11 +34,14 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
 
         boardIV.layer.borderWidth = 2
-        lbLabel.layer.borderWidth = 2
         boardIV.layer.cornerRadius = 20
+        boardIV.layer.borderColor =  UIColor.white.cgColor
+        lbLabel.layer.borderWidth = 2
         lbLabel.layer.cornerRadius = 20
-        boardIV.layer.borderWidth = 2
+        lbLabel.layer.borderColor =  UIColor.white.cgColor
+        PlayedDocLbl.layer.borderWidth = 2
         PlayedDocLbl.layer.cornerRadius = 20
+        PlayedDocLbl.layer.borderColor = UIColor.lightGray.cgColor
         
         getdoctorsCategory()
         
@@ -57,7 +55,7 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func homBtnTapped(_ sender: UIButton) {
         
-        let VC = storyboard?.instantiateViewController(withIdentifier: "VC1") as! VC1
+        let VC = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         self.navigationController?.pushViewController(VC, animated: true)
         
     }
@@ -113,16 +111,17 @@ class VC6: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return filteredLeaderboard.count - 3
+        return filteredLeaderboard.count - 4
         
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoctorTVC", for: indexPath) as! DoctorTVC
-        let index = indexPath.row + 3
+        let index = indexPath.row + 4
         let doctorInfo = filteredLeaderboard[index]
-        cell.lblName.text = "\(index)    \(doctorInfo.doctorName) \(doctorInfo.score) points"
+        cell.lblName.text = "\(index).     Dr \(doctorInfo.doctorName) "            /*  \(doctorInfo.score) points"*/
+        cell.scoreLbl.text = "\(doctorInfo.score) points"
         return cell
     }
    }

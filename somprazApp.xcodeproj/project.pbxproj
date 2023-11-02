@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		770490802AD5D8F20065034E /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7704907F2AD5D8F20065034E /* iOSDropDown.framework */; };
 		7727A2E52AE66A74004C8153 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7727A2E42AE66A74004C8153 /* AlertViewController.swift */; };
-		779F43192AD52A18000310EB /* VC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F43182AD52A18000310EB /* VC2.swift */; };
-		779F431B2AD52D80000310EB /* VC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F431A2AD52D80000310EB /* VC3.swift */; };
-		779F431D2AD53645000310EB /* VC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F431C2AD53645000310EB /* VC4.swift */; };
+		779F43192AD52A18000310EB /* SomprazVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F43182AD52A18000310EB /* SomprazVC.swift */; };
+		779F431B2AD52D80000310EB /* 4QuesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F431A2AD52D80000310EB /* 4QuesVC.swift */; };
+		779F431D2AD53645000310EB /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F431C2AD53645000310EB /* CategoryVC.swift */; };
 		77A5770D2ADEA5CB00F04135 /* DoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5770C2ADEA5CB00F04135 /* DoctorModel.swift */; };
-		77A5770F2ADFAC5800F04135 /* VC6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5770E2ADFAC5800F04135 /* VC6.swift */; };
+		77A5770F2ADFAC5800F04135 /* LeaderBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A5770E2ADFAC5800F04135 /* LeaderBoardVC.swift */; };
 		77A577112ADFC75300F04135 /* DoctorTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A577102ADFC75300F04135 /* DoctorTVC.swift */; };
 		77A577132ADFDE9800F04135 /* SelectDoctorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A577122ADFDE9800F04135 /* SelectDoctorModel.swift */; };
-		77AE4AD32AD69F180057E316 /* VC5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE4AD22AD69F180057E316 /* VC5.swift */; };
+		77AE4AD32AD69F180057E316 /* QuesAnsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE4AD22AD69F180057E316 /* QuesAnsVC.swift */; };
 		77B5EA442AD3D218005D215F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA432AD3D218005D215F /* AppDelegate.swift */; };
 		77B5EA462AD3D218005D215F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA452AD3D218005D215F /* SceneDelegate.swift */; };
-		77B5EA482AD3D218005D215F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA472AD3D218005D215F /* ViewController.swift */; };
+		77B5EA482AD3D218005D215F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA472AD3D218005D215F /* LoginVC.swift */; };
 		77B5EA4B2AD3D218005D215F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B5EA492AD3D218005D215F /* Main.storyboard */; };
 		77B5EA4D2AD3D219005D215F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B5EA4C2AD3D219005D215F /* Assets.xcassets */; };
 		77B5EA502AD3D219005D215F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B5EA4E2AD3D219005D215F /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		77B5EA652AD3D219005D215F /* somprazAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA642AD3D219005D215F /* somprazAppUITests.swift */; };
 		77B5EA672AD3D219005D215F /* somprazAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA662AD3D219005D215F /* somprazAppUITestsLaunchTests.swift */; };
 		77B5EA742AD3F135005D215F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA732AD3F135005D215F /* CustomTextField.swift */; };
-		77B5EA762AD403BD005D215F /* VC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA752AD403BD005D215F /* VC1.swift */; };
+		77B5EA762AD403BD005D215F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B5EA752AD403BD005D215F /* HomeVC.swift */; };
 		77BB49632ADC664800CCD73A /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB49622ADC664800CCD73A /* QuizModel.swift */; };
 		77BB49652ADC668B00CCD73A /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB49642ADC668B00CCD73A /* ServiceLayer.swift */; };
 		77CE38B42AEBC6B2001DA89C /* LeaderBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */; };
@@ -64,18 +64,18 @@
 		673942000397D84715922F7E /* Pods-somprazApp-somprazAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-somprazApp-somprazAppUITests.release.xcconfig"; path = "Target Support Files/Pods-somprazApp-somprazAppUITests/Pods-somprazApp-somprazAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7704907F2AD5D8F20065034E /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7727A2E42AE66A74004C8153 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		779F43182AD52A18000310EB /* VC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC2.swift; sourceTree = "<group>"; };
-		779F431A2AD52D80000310EB /* VC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC3.swift; sourceTree = "<group>"; };
-		779F431C2AD53645000310EB /* VC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC4.swift; sourceTree = "<group>"; };
+		779F43182AD52A18000310EB /* SomprazVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomprazVC.swift; sourceTree = "<group>"; };
+		779F431A2AD52D80000310EB /* 4QuesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4QuesVC.swift; sourceTree = "<group>"; };
+		779F431C2AD53645000310EB /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		77A5770C2ADEA5CB00F04135 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
-		77A5770E2ADFAC5800F04135 /* VC6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC6.swift; sourceTree = "<group>"; };
+		77A5770E2ADFAC5800F04135 /* LeaderBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardVC.swift; sourceTree = "<group>"; };
 		77A577102ADFC75300F04135 /* DoctorTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTVC.swift; sourceTree = "<group>"; };
 		77A577122ADFDE9800F04135 /* SelectDoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDoctorModel.swift; sourceTree = "<group>"; };
-		77AE4AD22AD69F180057E316 /* VC5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC5.swift; sourceTree = "<group>"; };
+		77AE4AD22AD69F180057E316 /* QuesAnsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuesAnsVC.swift; sourceTree = "<group>"; };
 		77B5EA402AD3D218005D215F /* somprazApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = somprazApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B5EA432AD3D218005D215F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77B5EA452AD3D218005D215F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77B5EA472AD3D218005D215F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77B5EA472AD3D218005D215F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		77B5EA4A2AD3D218005D215F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77B5EA4C2AD3D219005D215F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77B5EA4F2AD3D219005D215F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		77B5EA642AD3D219005D215F /* somprazAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = somprazAppUITests.swift; sourceTree = "<group>"; };
 		77B5EA662AD3D219005D215F /* somprazAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = somprazAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		77B5EA732AD3F135005D215F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		77B5EA752AD403BD005D215F /* VC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC1.swift; sourceTree = "<group>"; };
+		77B5EA752AD403BD005D215F /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		77BB49622ADC664800CCD73A /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		77BB49642ADC668B00CCD73A /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardModel.swift; sourceTree = "<group>"; };
@@ -162,13 +162,13 @@
 				77B5EA452AD3D218005D215F /* SceneDelegate.swift */,
 				77B5EA732AD3F135005D215F /* CustomTextField.swift */,
 				77B5EA492AD3D218005D215F /* Main.storyboard */,
-				77A5770E2ADFAC5800F04135 /* VC6.swift */,
-				77AE4AD22AD69F180057E316 /* VC5.swift */,
-				779F431C2AD53645000310EB /* VC4.swift */,
-				779F431A2AD52D80000310EB /* VC3.swift */,
-				779F43182AD52A18000310EB /* VC2.swift */,
-				77B5EA752AD403BD005D215F /* VC1.swift */,
-				77B5EA472AD3D218005D215F /* ViewController.swift */,
+				77A5770E2ADFAC5800F04135 /* LeaderBoardVC.swift */,
+				77AE4AD22AD69F180057E316 /* QuesAnsVC.swift */,
+				779F431C2AD53645000310EB /* CategoryVC.swift */,
+				779F431A2AD52D80000310EB /* 4QuesVC.swift */,
+				779F43182AD52A18000310EB /* SomprazVC.swift */,
+				77B5EA752AD403BD005D215F /* HomeVC.swift */,
+				77B5EA472AD3D218005D215F /* LoginVC.swift */,
 				77A577102ADFC75300F04135 /* DoctorTVC.swift */,
 				7727A2E42AE66A74004C8153 /* AlertViewController.swift */,
 				77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */,
@@ -453,15 +453,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				77A577112ADFC75300F04135 /* DoctorTVC.swift in Sources */,
-				77A5770F2ADFAC5800F04135 /* VC6.swift in Sources */,
-				77AE4AD32AD69F180057E316 /* VC5.swift in Sources */,
+				77A5770F2ADFAC5800F04135 /* LeaderBoardVC.swift in Sources */,
+				77AE4AD32AD69F180057E316 /* QuesAnsVC.swift in Sources */,
 				77B5EA742AD3F135005D215F /* CustomTextField.swift in Sources */,
-				779F431D2AD53645000310EB /* VC4.swift in Sources */,
-				77B5EA482AD3D218005D215F /* ViewController.swift in Sources */,
+				779F431D2AD53645000310EB /* CategoryVC.swift in Sources */,
+				77B5EA482AD3D218005D215F /* LoginVC.swift in Sources */,
 				77BB49632ADC664800CCD73A /* QuizModel.swift in Sources */,
-				77B5EA762AD403BD005D215F /* VC1.swift in Sources */,
-				779F43192AD52A18000310EB /* VC2.swift in Sources */,
-				779F431B2AD52D80000310EB /* VC3.swift in Sources */,
+				77B5EA762AD403BD005D215F /* HomeVC.swift in Sources */,
+				779F43192AD52A18000310EB /* SomprazVC.swift in Sources */,
+				779F431B2AD52D80000310EB /* 4QuesVC.swift in Sources */,
 				77A577132ADFDE9800F04135 /* SelectDoctorModel.swift in Sources */,
 				7727A2E52AE66A74004C8153 /* AlertViewController.swift in Sources */,
 				77A5770D2ADEA5CB00F04135 /* DoctorModel.swift in Sources */,
