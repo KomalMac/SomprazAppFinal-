@@ -26,42 +26,10 @@
             filePath = "somprazApp/HomeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "postDoctorData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2CDBF97C-B3AE-416C-9036-417484EE3466 - 683e47201552e835"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "somprazApp.HomeVC.postDoctorData() -&gt; ()"
-                  moduleName = "somprazApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/digilateral/Desktop/-SomprazApp/somprazApp/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "444">
-               </Location>
-               <Location
-                  uuid = "2CDBF97C-B3AE-416C-9036-417484EE3466 - 683e47201552e835"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "somprazApp.HomeVC.postDoctorData() -&gt; ()"
-                  moduleName = "somprazApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/digilateral/Desktop/-SomprazApp/somprazApp/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "420">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,42 +42,10 @@
             filePath = "somprazApp/HomeVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "postDoctorData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DB1A9021-75E5-41C4-9A59-A3BDEC7668D3 - 49b059cef0e5c254"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
-                  moduleName = "somprazApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/digilateral/Desktop/-SomprazApp/somprazApp/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "296">
-               </Location>
-               <Location
-                  uuid = "DB1A9021-75E5-41C4-9A59-A3BDEC7668D3 - 49b059cef0e5c254"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in somprazApp.HomeVC.postDoctorData() -&gt; ()"
-                  moduleName = "somprazApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/digilateral/Desktop/-SomprazApp/somprazApp/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "440">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

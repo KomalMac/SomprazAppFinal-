@@ -63,6 +63,75 @@ class HomeVC: UIViewController {
         view.bringSubviewToFront(backButton2)
     }
     
+    func postDocList() {
+        
+        guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/get/get-only-name-with-id") else {
+            return
+        }
+
+
+        let bodyParameters: [String: Any] = [
+            "mrId": selectedMRID
+        ]
+
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: bodyParameters)
+
+            // Print the raw JSON data before attempting to decode
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print("Request JSON: \(jsonString)")
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Network Error: \(error)")
+                    // Handle network error (e.g., show an alert to the user)
+                    return
+                }
+
+                if let data = data {
+                    // Print the raw JSON data received from the API
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        print("Received JSON: \(jsonString)")
+                    }
+
+                    do {
+                        let decoder = JSONDecoder()
+                        let doctors = try decoder.decode(SelectMRModel.self, from: data)
+
+                        DispatchQueue.main.async {
+                            
+                            self.docDisplayList = [String]()
+                            self.arrDocList = [SelectDoctorModelElement]()
+                            self.arrDocList = doctors
+                            for i in 0..<doctors.count {
+                                let docObj = doctors[i]
+                                if let name = docObj.doctorName {
+                                    let n = "Dr. " + name
+                                    self?.docDisplayList.append(n)
+                                }
+                            }
+                            self?.selectDocName.optionArray = self?.docDisplayList ?? [String]()
+                        }
+                    } catch let decodingError {
+                        print("Error decoding JSON data: \(decodingError)")
+                        // Handle decoding error (e.g., show an alert to the user)
+                    }
+                }
+            }
+            task.resume()
+        } catch {
+            print("Error creating JSON data: \(error)")
+            // Handle JSON serialization error
+        }
+    }
+    
+    
     func getDoctorList() {
         
         guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/get/get-only-name-with-id") else {
@@ -142,7 +211,7 @@ class HomeVC: UIViewController {
         ]
         
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: bodyParameters, options: .prettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: bodyParameters )
             
             // Increase the timeout interval to 30 seconds
             var request = URLRequest(url: url, timeoutInterval: 60) // Increase to 60 seconds
