@@ -12,10 +12,12 @@ struct DoctorModelElement: Codable {
     let category: String
     let isPlayed: Bool
     let totalPoints: Int?
+//    let mrid: String? // Add this line for the "MRID" field
 
     enum CodingKeys: String, CodingKey {
         case category, isPlayed
         case totalPoints = "TotalPoints"
+//        case mrid = "MRID"
     }
 }
 

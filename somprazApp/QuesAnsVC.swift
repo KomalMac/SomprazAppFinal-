@@ -221,7 +221,7 @@ class QuesAnsVC: UIViewController {
     }
     
     func showAlertwithImage(id: String) {
-        self.drNameScorelbl.text = "\(self.selectedDoctorName), your score is \(score) points"
+        self.drNameScorelbl.text = "Dr \(self.selectedDoctorName), your score is \(score) points"
         self.MainAlertView.isHidden = false
         
         // Set the image based on the provided 'id'

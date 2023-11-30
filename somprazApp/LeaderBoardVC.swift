@@ -81,7 +81,7 @@ class LeaderBoardVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
      
                             self.lbLabel.text = "Category: " + self.selectedCategory
                             print("Score: \(self.score)")
-                            self.PlayedDocLbl.text = "\(self.selectedDoctorName), Score: \(self.score)"
+                            self.PlayedDocLbl.text = "Dr \(self.selectedDoctorName), Score: \(self.score)"
 
                             self.tableView.reloadData()
      

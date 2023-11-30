@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class LoginVC: UIViewController {
     
     @IBOutlet weak var userLoginLbl: UILabel!
@@ -35,31 +37,83 @@ class LoginVC: UIViewController {
     
     
     @IBAction func loginBtnTapped(_ sender: UIButton) {
-        // Check if the text fields are empty
-        if let employeeText = employeeTF.text, let passwordText = passswordTF.text, !employeeText.isEmpty, !passwordText.isEmpty {
-            // Check if the text fields contain the expected values
-            //            if employeeText == "MR@gmail.com" && passwordText == "pass" {
-            if employeeText == "a" && passwordText == "a" {
-                
-                // Text fields match the expected values, proceed to the next screen
-                let VC = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-                self.navigationController?.pushViewController(VC, animated: true)
-            } else {
-                // Display an alert if the provided credentials don't match
-                let alert = UIAlertController(title: "Login Error", message: "ID and password don't match.", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
-            }
+        // Check if both text fields are filled
+        if let enterDocNameText = employeeTF.text, !enterDocNameText.isEmpty,
+           let placeText = passswordTF.text, !placeText.isEmpty {
+            // Text fields are not empty, proceed to the next screen
+            postMRData() 
         } else {
             // Display an alert if either or both text fields are empty
-            let alert = UIAlertController(title: "Validation Error", message: "Please fill in both Employee and Password fields.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Validation Error", message: "Please fill in both text fields.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true, completion: nil)
         }
     }
     
+    func postMRData() {
+        guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/login-mr") else {
+            return
+        }
+
+        let MRName = employeeTF.text ?? ""
+        let password = passswordTF.text ?? ""
+
+        let bodyParameters: [String: Any] = [
+            "MRID": MRName,
+            "PASSWORD": password
+        ]
+
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: bodyParameters, options: .prettyPrinted)
+
+            // Print the raw JSON data before attempting to decode
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print("Request JSON: \(jsonString)")
+            }
+
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print("Network Error: \(error)")
+                    // Handle network error (e.g., show an alert to the user)
+                    return
+                }
+
+                if let data = data {
+                    // Print the raw JSON data received from the API
+                    if let jsonString = String(data: data, encoding: .utf8) {
+                        print("Received JSON: \(jsonString)")
+                    }
+
+                    do {
+                        let decoder = JSONDecoder()
+                        let mrInsert = try decoder.decode(SelectMRModel.self, from: data)
+
+                        DispatchQueue.main.async {
+                            // Print the decoded data
+                            print("API Result Before Navigation: \(mrInsert)")
+
+                            let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                            self.navigationController?.pushViewController(VC, animated: true)
+                        }
+                    } catch let decodingError {
+                        print("Error decoding JSON data: \(decodingError)")
+                        // Handle decoding error (e.g., show an alert to the user)
+                    }
+                }
+            }
+            task.resume()
+        } catch {
+            print("Error creating JSON data: \(error)")
+            // Handle JSON serialization error
+        }
+    }
+
     
     
 }

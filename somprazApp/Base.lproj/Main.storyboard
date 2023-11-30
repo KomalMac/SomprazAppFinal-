@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4703.3203125" y="151.5625"/>
+            <point key="canvasLocation" x="4781" y="152"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="WhT-5w-sTf">
@@ -160,7 +160,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="ADD"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="ADD">
+                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="35"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="addBtnTapped:" destination="nrm-La-JLQ" eventType="touchUpInside" id="gBV-4e-OST"/>
                                         </connections>
@@ -194,7 +196,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="SUBMIT"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="SUBMIT">
+                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="35"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="submitBtnTapped:" destination="nrm-La-JLQ" eventType="touchUpInside" id="dBn-nf-jKQ"/>
                                         </connections>
@@ -349,47 +353,66 @@
             </objects>
             <point key="canvasLocation" x="6298.2421875" y="151.5625"/>
         </scene>
-        <!--QuesVC-->
-        <scene sceneID="KoG-wu-xV3">
+        <!--QuesOptionVC-->
+        <scene sceneID="Hwl-Sy-pwp">
             <objects>
-                <viewController restorationIdentifier="4QuesVC" storyboardIdentifier="4QuesVC" title="QuesVC" id="Hsf-rQ-ccl" customClass="4QuesVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="QuesOptionVC" storyboardIdentifier="QuesOptionVC" title="QuesOptionVC" id="c6c-5y-ytn" customClass="QuesOptionVC" customModule="somprazApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BQp-ev-zT4"/>
-                        <viewControllerLayoutGuide type="bottom" id="5mZ-hu-VSy"/>
+                        <viewControllerLayoutGuide type="top" id="W3A-Le-JuJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="FMh-LE-b8M"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jS2-Wy-LGQ">
+                    <view key="view" contentMode="scaleToFill" id="rAV-8c-yoq">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg4" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-Ua-caL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg4" translatesAutoresizingMaskIntoConstraints="NO" id="PlO-0x-BU6">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="788"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4q1m" translatesAutoresizingMaskIntoConstraints="NO" id="mFT-mJ-fhZ">
-                                <rect key="frame" x="302" y="249" width="420" height="270"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaZ-YF-NdS">
+                                <rect key="frame" x="90" y="284" width="400" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="420" id="5Zp-SO-3E7"/>
-                                    <constraint firstAttribute="height" constant="270" id="sKe-bh-a1F"/>
+                                    <constraint firstAttribute="height" constant="200" id="DuI-8p-ajZ"/>
+                                    <constraint firstAttribute="width" constant="400" id="kdr-bq-blX"/>
                                 </constraints>
-                            </imageView>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="4Ques"/>
+                                <connections>
+                                    <action selector="ques4BtnTapped:" destination="c6c-5y-ytn" eventType="touchUpInside" id="LG1-VS-5F4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSw-el-KDa">
+                                <rect key="frame" x="534" y="284" width="400" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="N9n-R1-oOe"/>
+                                    <constraint firstAttribute="width" constant="400" id="dJW-bD-IYr"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="multipleQues"/>
+                                <connections>
+                                    <action selector="quesMultipleBtnTapped:" destination="c6c-5y-ytn" eventType="touchUpInside" id="1GG-hF-Dzl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dcg-Ua-caL" firstAttribute="leading" secondItem="jS2-Wy-LGQ" secondAttribute="leading" id="3BU-MV-iLn"/>
-                            <constraint firstItem="mFT-mJ-fhZ" firstAttribute="centerX" secondItem="jS2-Wy-LGQ" secondAttribute="centerX" id="Cwx-SU-24n"/>
-                            <constraint firstItem="5mZ-hu-VSy" firstAttribute="top" secondItem="Dcg-Ua-caL" secondAttribute="bottom" constant="-20" id="Day-bN-lNd"/>
-                            <constraint firstItem="mFT-mJ-fhZ" firstAttribute="centerY" secondItem="jS2-Wy-LGQ" secondAttribute="centerY" id="MyS-Lc-6z2"/>
-                            <constraint firstAttribute="trailing" secondItem="Dcg-Ua-caL" secondAttribute="trailing" id="iFp-hs-eOf"/>
-                            <constraint firstItem="Dcg-Ua-caL" firstAttribute="top" secondItem="BQp-ev-zT4" secondAttribute="bottom" constant="-20" id="khi-wm-IhJ"/>
+                            <constraint firstItem="FMh-LE-b8M" firstAttribute="top" secondItem="PlO-0x-BU6" secondAttribute="bottom" constant="-20" id="2vP-nX-xRY"/>
+                            <constraint firstItem="qSw-el-KDa" firstAttribute="centerY" secondItem="rAV-8c-yoq" secondAttribute="centerY" id="SXY-Fw-0U6"/>
+                            <constraint firstItem="PlO-0x-BU6" firstAttribute="top" secondItem="W3A-Le-JuJ" secondAttribute="bottom" constant="-20" id="Zmj-sJ-wx4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qSw-el-KDa" secondAttribute="trailing" constant="70" id="ZoW-SQ-Th6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PlO-0x-BU6" secondAttribute="trailing" constant="-20" id="aFR-c3-5Aa"/>
+                            <constraint firstItem="PlO-0x-BU6" firstAttribute="leading" secondItem="rAV-8c-yoq" secondAttribute="leadingMargin" constant="-20" id="cCV-ho-Bt7"/>
+                            <constraint firstItem="JaZ-YF-NdS" firstAttribute="leading" secondItem="rAV-8c-yoq" secondAttribute="leadingMargin" constant="70" id="ski-3E-FlZ"/>
+                            <constraint firstItem="JaZ-YF-NdS" firstAttribute="centerY" secondItem="rAV-8c-yoq" secondAttribute="centerY" id="yld-QW-qHX"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainImgView" destination="Dcg-Ua-caL" id="34c-Pc-T7p"/>
-                        <outlet property="ques1minImgView" destination="mFT-mJ-fhZ" id="DvR-Tv-uPw"/>
+                        <outlet property="ques4Btn" destination="JaZ-YF-NdS" id="1Hf-me-iB3"/>
+                        <outlet property="quesMultipleBtn" destination="qSw-el-KDa" id="ipd-fd-IVJ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oav-Bx-Eeg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iiP-SQ-lcW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7160.7421874999991" y="139.84375"/>
+            <point key="canvasLocation" x="7185" y="158"/>
         </scene>
         <!--CategoryVC-->
         <scene sceneID="hrN-es-zcr">
@@ -1038,8 +1061,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="510" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGi-Xq-IEy">
-                                                            <rect key="frame" x="0.0" y="10" width="510" height="30"/>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGi-Xq-IEy">
+                                                            <rect key="frame" x="0.0" y="10" width="510" height="24"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnY-xC-HEU">
                                                                     <rect key="frame" x="30" y="5" width="48" height="20"/>
@@ -1181,7 +1204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfm-tU-9Vi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11125.78125" y="76.5625"/>
+            <point key="canvasLocation" x="10538" y="186"/>
         </scene>
     </scenes>
     <designables>
@@ -1191,6 +1214,7 @@
     </designables>
     <resources>
         <image name="4 sure logo" width="706" height="570"/>
+        <image name="4Ques" width="1291" height="1065"/>
         <image name="4q1m" width="1317" height="1064"/>
         <image name="AstronomyWhite" width="1119" height="262"/>
         <image name="Bg" width="1024" height="768"/>
@@ -1213,6 +1237,7 @@
         <image name="d2" width="230" height="230"/>
         <image name="d3" width="230" height="230"/>
         <image name="leaderboard-bg (2)" width="1024" height="768"/>
+        <image name="multipleQues" width="1498" height="1068"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

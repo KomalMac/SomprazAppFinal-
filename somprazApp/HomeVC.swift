@@ -43,19 +43,7 @@ class HomeVC: UIViewController {
             self.view.endEditing(true)
         }
         
-        // Create a custom back button
-        let backButton1 = UIButton(type: .custom)
-        backButton1.setImage(UIImage(named: "backImage1"), for: .normal) // Set your custom back button image
-        backButton1.addTarget(self, action: #selector(backButton1Tapped), for: .touchUpInside)
-        // Add the custom back button to the view
-        view.addSubview(backButton1)
-        // Position the custom back button as needed
-        backButton1.frame = CGRect(x: 16, y: 40, width: 30, height: 30) // Adjust the frame as needed
-        
-        view.bringSubviewToFront(backButton1)
-        
-        
-        
+    
         let backButton2 = UIButton(type: .custom)
         backButton2.setImage(UIImage(named: "logoutBtn"), for: .normal)
         backButton2.addTarget(self, action: #selector(backButton2Tapped), for: .touchUpInside)
@@ -109,10 +97,7 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    @objc func backButton1Tapped() {
-        navigationController?.popViewController(animated: true)
-    }
-    
+   
     @objc func backButton2Tapped() {
         // Check if loginVC is in the navigation stack
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
@@ -138,6 +123,7 @@ class HomeVC: UIViewController {
     
     }
     
+    
     func postDoctorData() {
         guard let url = URL(string: "https://quizapi-omsn.onrender.com/api/user") else {
             return
@@ -156,19 +142,26 @@ class HomeVC: UIViewController {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: bodyParameters, options: .prettyPrinted)
             
-            var request = URLRequest(url: url)
+            // Increase the timeout interval to 30 seconds
+            var request = URLRequest(url: url, timeoutInterval: 60) // Increase to 60 seconds
+
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
+                if let error = error as NSError?, error.domain == NSURLErrorDomain, error.code == NSURLErrorTimedOut {
+                    print("Request timed out.")
+                    // Handle timeout error (e.g., show an alert to the user)
+                } else if let error = error {
                     print("Error: \(error)")
+                    // Handle other types of errors
                 } else if let data = data {
-                    if let doctorInsert = try? JSONDecoder().decode(DoctorInsert.self, from: data) {
+                    // Process the response data
+                    if let doctorInsert = try? JSONDecoder().decode(AddDocModel.self, from: data) {
                         DispatchQueue.main.async {
                             let selectedDoctorName = self.selectDocName.text
-                            let VC = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC") as! CategoryVC
+                            let VC = self.storyboard?.instantiateViewController(withIdentifier: "QuesOptionVC") as! QuesOptionVC
                             VC.selectedDoctorID = doctorInsert.id
                             VC.selectedDoctorName = self.enterDocNameTF.text ?? ""
                             self.navigationController?.pushViewController(VC, animated: true)
@@ -216,7 +209,8 @@ class HomeVC: UIViewController {
         // Check if a selection has been made in the dropdown
         if let selectedDoctorName = selectDocName.text, !selectedDoctorName.isEmpty {
             // Proceed to the next screen
-            if let VC = self.storyboard?.instantiateViewController(withIdentifier: "CategoryVC") as? CategoryVC {
+            if let VC = self.storyboard?.instantiateViewController(withIdentifier: "QuesOptionVC") as? QuesOptionVC
+            {
                 VC.selectedDoctorID = selectedDoctorID
                 VC.selectedDoctorName = selectedDoctorName
                 self.navigationController?.pushViewController(VC, animated: true)
