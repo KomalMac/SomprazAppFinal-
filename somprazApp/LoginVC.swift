@@ -99,6 +99,7 @@ class LoginVC: UIViewController {
                             print("API Result Before Navigation: \(mrInsert)")
 
                             let VC = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                            VC.selectedMRID = mrInsert.MRID
                             self.navigationController?.pushViewController(VC, animated: true)
                         }
                     } catch let decodingError {

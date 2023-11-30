@@ -14,6 +14,7 @@ class HomeVC: UIViewController {
     var docDisplayList = [String]()
     var arrDocList = [SelectDoctorModelElement]()
     var selectedDoctorID = ""
+    var selectedMRID = ""
     
     
     override func viewDidLoad() {
@@ -136,7 +137,8 @@ class HomeVC: UIViewController {
         // Create a dictionary with a single key "data"
         let bodyParameters: [String: Any] = [
             "doctorName": doctorName,
-            "state": state
+            "state": state,
+            "mrId": selectedMRID
         ]
         
         do {
@@ -157,6 +159,7 @@ class HomeVC: UIViewController {
                     print("Error: \(error)")
                     // Handle other types of errors
                 } else if let data = data {
+                    
                     // Process the response data
                     if let doctorInsert = try? JSONDecoder().decode(AddDocModel.self, from: data) {
                         DispatchQueue.main.async {
