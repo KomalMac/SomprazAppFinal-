@@ -20,6 +20,7 @@ class CategoryVC: UIViewController {
     var selectedDoctorID = ""
     var selectedDoctorName = ""
     var doctorName: String = "" // Property to hold the doctorName
+    var selectedMRID = ""
     
     
     override func viewDidLoad() {

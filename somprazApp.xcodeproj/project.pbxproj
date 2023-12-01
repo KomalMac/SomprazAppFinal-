@@ -33,6 +33,7 @@
 		77D963392B1603E000FD54CF /* QuesOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D963382B1603E000FD54CF /* QuesOptionVC.swift */; };
 		77E5D3512B187B6B0071CFF2 /* SelectMRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5D3502B187B6B0071CFF2 /* SelectMRModel.swift */; };
 		77E5D3532B18A7300071CFF2 /* AddDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E5D3522B18A7300071CFF2 /* AddDocModel.swift */; };
+		77E9A92A2B1A5579006AC954 /* SubmitDocMRIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E9A9292B1A5579006AC954 /* SubmitDocMRIdModel.swift */; };
 		AD3F5E496AC17F8B048946BF /* Pods_somprazAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8064E11ADCAA5DA3DCABA729 /* Pods_somprazAppTests.framework */; };
 		CA6430472805B3E9B970161D /* Pods_somprazApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210FFE09616548E333713EC6 /* Pods_somprazApp.framework */; };
 		D1157345A714A0FF4FB086F6 /* Pods_somprazApp_somprazAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E48AFB90FE2EFED69BD7B61 /* Pods_somprazApp_somprazAppUITests.framework */; };
@@ -94,6 +95,7 @@
 		77D963382B1603E000FD54CF /* QuesOptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuesOptionVC.swift; sourceTree = "<group>"; };
 		77E5D3502B187B6B0071CFF2 /* SelectMRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMRModel.swift; sourceTree = "<group>"; };
 		77E5D3522B18A7300071CFF2 /* AddDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDocModel.swift; sourceTree = "<group>"; };
+		77E9A9292B1A5579006AC954 /* SubmitDocMRIdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitDocMRIdModel.swift; sourceTree = "<group>"; };
 		8064E11ADCAA5DA3DCABA729 /* Pods_somprazAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_somprazAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				77CE38B32AEBC6B2001DA89C /* LeaderBoardModel.swift */,
 				77A577122ADFDE9800F04135 /* SelectDoctorModel.swift */,
 				77A5770C2ADEA5CB00F04135 /* DoctorModel.swift */,
+				77E9A9292B1A5579006AC954 /* SubmitDocMRIdModel.swift */,
 				77E5D3522B18A7300071CFF2 /* AddDocModel.swift */,
 				77E5D3502B187B6B0071CFF2 /* SelectMRModel.swift */,
 				77BB49622ADC664800CCD73A /* QuizModel.swift */,
@@ -476,6 +479,7 @@
 				77B5EA442AD3D218005D215F /* AppDelegate.swift in Sources */,
 				77CE38B42AEBC6B2001DA89C /* LeaderBoardModel.swift in Sources */,
 				77E5D3512B187B6B0071CFF2 /* SelectMRModel.swift in Sources */,
+				77E9A92A2B1A5579006AC954 /* SubmitDocMRIdModel.swift in Sources */,
 				77B5EA462AD3D218005D215F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
